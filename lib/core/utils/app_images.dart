@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for imagesAvatar
   /// assets/images/avatar.jpg
   static const String imagesAvatar = "assets/images/avatar.jpg";
@@ -38,6 +38,10 @@ class Assets {
   /// assets/images/homeDevices.png
   static const String imagesHomeDevices = "assets/images/homeDevices.png";
 
+  /// Assets for imagesInvestBekia
+  /// assets/images/invest_bekia.png
+  static const String imagesInvestBekia = "assets/images/invest_bekia.png";
+
   /// Assets for imagesMetail
   /// assets/images/metail.png
   static const String imagesMetail = "assets/images/metail.png";
@@ -49,6 +53,18 @@ class Assets {
   /// Assets for imagesOil
   /// assets/images/oil.png
   static const String imagesOil = "assets/images/oil.png";
+
+  /// Assets for imagesOnBoardingOne
+  /// assets/images/on_boarding_one.png
+  static const String imagesOnBoardingOne = "assets/images/on_boarding_one.png";
+
+  /// Assets for imagesOnBoardingThree
+  /// assets/images/on_boarding_three.png
+  static const String imagesOnBoardingThree = "assets/images/on_boarding_three.png";
+
+  /// Assets for imagesOnBoardingTwo
+  /// assets/images/on_boarding_two.png
+  static const String imagesOnBoardingTwo = "assets/images/on_boarding_two.png";
 
   /// Assets for imagesPaper
   /// assets/images/paper.png
@@ -78,9 +94,17 @@ class Assets {
   /// assets/images/sold_scrap.svg
   static const String imagesSoldScrap = "assets/images/sold_scrap.svg";
 
+  /// Assets for imagesSplashBackground
+  /// assets/images/splash_background.svg
+  static const String imagesSplashBackground = "assets/images/splash_background.svg";
+
   /// Assets for imagesStock
   /// assets/images/stock.svg
   static const String imagesStock = "assets/images/stock.svg";
+
+  /// Assets for imagesSvgLogoBekia
+  /// assets/images/svg_logo_bekia.svg
+  static const String imagesSvgLogoBekia = "assets/images/svg_logo_bekia.svg";
 
   /// Assets for imagesToys
   /// assets/images/toys.png
@@ -90,3 +114,4 @@ class Assets {
   /// assets/images/yourMoney.svg
   static const String imagesYourMoney = "assets/images/yourMoney.svg";
 }
+
