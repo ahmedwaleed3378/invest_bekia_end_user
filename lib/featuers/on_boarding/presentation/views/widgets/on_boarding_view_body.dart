@@ -16,23 +16,27 @@ class OnBoardingViewBody extends StatefulWidget {
 }
 
 class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
-  PageController pageController = PageController(initialPage: 0);
+  final PageController pageController = PageController(initialPage: 0);
   int currentIndex = 0;
+
+  bool isLargeScreen(BuildContext context) {
+    return MediaQuery.of(context).size.height > 700;
+  }
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
-        SafeArea(
-          child: SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-        ),
+        SafeArea(child: SizedBox(height: screenHeight * 0.01)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: CustomOnBoardingAppBar(
             currentIndex: currentIndex,
             onTapBack: () {
               pageController.previousPage(
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 curve: Curves.easeInOut,
               );
             },
@@ -41,18 +45,20 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             },
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-        SizedBox(
-          height: 435,
+        SizedBox(height: screenHeight * 0.03),
+
+        // Responsive PageView
+        Expanded(
+          flex: 4,
           child: PageView(
             onPageChanged: (index) {
               setState(() {
                 currentIndex = index;
               });
             },
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             controller: pageController,
-            children: [
+            children: const [
               CustomOnBoardingItem(
                 title: 'الخردة مش كراكيب!',
                 subTitle:
@@ -74,13 +80,13 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ],
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+
         SmoothPageIndicator(
           controller: pageController,
           count: 3,
           effect: CustomizableEffect(
             dotDecoration: DotDecoration(
-              color: Color(0xffCECECE),
+              color: const Color(0xffCECECE),
               borderRadius: BorderRadius.circular(12),
               width: 12,
               height: 12,
@@ -98,23 +104,24 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
           ),
         ),
-        Spacer(),
+
+        SizedBox(height: 20),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: CustomBigElevatedButtomWithTitle(
             onPressed: () {
-              currentIndex != 2
-                  ? pageController.nextPage(
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeInOut,
-                  )
-                  : null;
+              if (currentIndex != 2) {
+                pageController.nextPage(
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.easeInOut,
+                );
+              }
             },
             title: currentIndex == 2 ? 'ابدأ دلوقتي !' : 'التالي',
           ),
         ),
 
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+        SizedBox(height: screenHeight * 0.02),
       ],
     );
   }
