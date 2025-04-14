@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/widgets/helping_widgets/custom_circle_progress.dart';
+import 'package:invest_bekia/featuers/on_boarding/presentation/views/on_boarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -37,9 +38,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     _animationController.forward();
 
-    // Future.delayed(const Duration(milliseconds: 3500), () {
-    //   g.Get.offNamed('/onboarding');
-    // });
+    Future.delayed(const Duration(milliseconds: 3500), () {
+      g.Get.to(
+        () => const OnBoardingView(),
+        transition: g.Transition.fade,
+        duration: const Duration(milliseconds: 800),
+      );
+    });
   }
 
   @override
