@@ -8,23 +8,28 @@ class CustomOnBoardingAppBar extends StatelessWidget {
     super.key,
     required this.onTapBack,
     required this.onTapSkip,
+    required this.currentIndex,
   });
   final void Function() onTapBack;
   final void Function() onTapSkip;
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        InkWell(
-          borderRadius: BorderRadius.circular(12),
-          onTap: onTapBack,
-          child: Row(
-            children: [
-              Icon(Icons.arrow_back_ios, size: 16, color: Color(0xff6B6B6B)),
-              SizedBox(width: 5),
-              Text('رجوع', style: TextStyles.font18Regular(context)),
-            ],
+        Visibility(
+          visible: currentIndex != 0,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(12),
+            onTap: onTapBack,
+            child: Row(
+              children: [
+                Icon(Icons.arrow_back_ios, size: 16, color: Color(0xff6B6B6B)),
+                SizedBox(width: 5),
+                Text('رجوع', style: TextStyles.font18Regular(context)),
+              ],
+            ),
           ),
         ),
 
