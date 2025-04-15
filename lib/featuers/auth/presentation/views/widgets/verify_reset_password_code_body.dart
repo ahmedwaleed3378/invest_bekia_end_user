@@ -7,6 +7,7 @@ import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/core/widgets/helping_widgets/custom_container_with_svg_image.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/login_view.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/new_password_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/my_pin_enter_code.dart';
 
@@ -134,7 +135,13 @@ class _VerifyResetPasswordCodeBodyState
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CustomBigElevatedButtomWithTitle(
-              onPressed: () {},
+              onPressed: () {
+                g.Get.to(
+                  () => const NewPasswordView(),
+                  transition: g.Transition.fade,
+                  duration: const Duration(milliseconds: 800),
+                );
+              },
               title: 'أكد الكود',
             ),
           ),
