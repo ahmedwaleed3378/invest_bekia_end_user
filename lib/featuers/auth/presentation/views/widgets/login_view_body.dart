@@ -7,6 +7,7 @@ import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/register_view.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/reset_password_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -85,7 +86,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    g.Get.off(
+                      () => const ResetPasswordView(),
+                      transition: g.Transition.fade,
+                      duration: const Duration(milliseconds: 400),
+                    );
+                  },
                   child: Text(
                     'نسيت كلمه السر ؟',
                     style: TextStyles.font18SemiBold(
