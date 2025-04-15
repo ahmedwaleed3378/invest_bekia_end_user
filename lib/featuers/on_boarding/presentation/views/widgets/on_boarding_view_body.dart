@@ -1,9 +1,12 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/login_view.dart';
+import 'package:invest_bekia/featuers/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:invest_bekia/featuers/on_boarding/presentation/views/widgets/custom_on_boarding_app_bar.dart';
 import 'package:invest_bekia/featuers/on_boarding/presentation/views/widgets/custom_on_boarding_item.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -114,6 +117,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 pageController.nextPage(
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut,
+                );
+              } else {
+                g.Get.off(
+                  () => const LoginView(),
+                  transition: g.Transition.fade,
+                  duration: const Duration(milliseconds: 800),
                 );
               }
             },

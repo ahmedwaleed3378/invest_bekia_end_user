@@ -39,7 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     _animationController.forward();
 
     Future.delayed(const Duration(milliseconds: 3500), () {
-      g.Get.to(
+      g.Get.off(
         () => const OnBoardingView(),
         transition: g.Transition.fade,
         duration: const Duration(milliseconds: 800),
