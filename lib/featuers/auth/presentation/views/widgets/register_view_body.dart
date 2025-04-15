@@ -6,6 +6,7 @@ import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/login_view.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/verify_code_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_privacy_and_polices_check.dart';
 
@@ -107,6 +108,11 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
+                        g.Get.to(
+                          () => const VerifyCodeView(),
+                          transition: g.Transition.leftToRight,
+                          duration: const Duration(milliseconds: 400),
+                        );
                       } else {
                         setState(() {
                           _autovalidateMode = AutovalidateMode.always;
