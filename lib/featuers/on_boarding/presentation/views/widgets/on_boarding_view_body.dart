@@ -62,7 +62,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               CustomOnBoardingItem(
                 title: 'الخردة مش كراكيب!',
                 subTitle:
-                    'سلّم الخردة اللي عندك، وخد مكانها فلوس أو حصص في أرض بجد!',
+                    'كل مرة بترمي خردة قديمة، إنت بترمي فرصة! بدل ما ترميها، استثمر بيها مع إنفيست بيكيا 🌱',
                 image: Assets.imagesOnBoardingOne,
               ),
               CustomOnBoardingItem(
@@ -74,7 +74,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               CustomOnBoardingItem(
                 title: 'كسبان في كل حالة',
                 subTitle:
-                    'خردتك هتتحوّل لفلوس أو حصة أرض، وساعدت كمان تحافظ على البيئة',
+                    'الخردة النهاردة = سهم استثماري بكرة 📈 قيمتها تتحول لسهم استثماري قيمته بتزيد ويدخلك عائد',
                 image: Assets.imagesOnBoardingThree,
               ),
             ],

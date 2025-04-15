@@ -1,7 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:invest_bekia/core/utils/app_images.dart';
 
 class OnBoardingImageStack extends StatelessWidget {
   const OnBoardingImageStack({super.key, required this.image});

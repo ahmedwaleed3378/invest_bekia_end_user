@@ -28,7 +28,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(seconds: 2),
     );
 
-    _scaleAnimation = Tween<double>(begin: 0.5, end: 1).animate(
+    _scaleAnimation = Tween<double>(begin: 0.5, end: 1.2).animate(
       CurvedAnimation(parent: _animationController, curve: Curves.slowMiddle),
     );
 
@@ -57,11 +57,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        SvgPicture.asset(
-          Assets.imagesSplashBackground,
-          fit: BoxFit.fill,
-          width: double.infinity,
-        ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
