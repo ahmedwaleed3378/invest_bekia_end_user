@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/register_view.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -81,46 +84,21 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               title: 'تسجيل الدخول',
             ),
             Spacer(),
-            CustomAuthButtomRowWithTitle(),
+            CustomAuthButtomRowWithTitle(
+              onPress: () {
+                g.Get.off(
+                  () => const RegisterView(),
+                  transition: g.Transition.fade,
+                  duration: const Duration(milliseconds: 800),
+                );
+              },
+              mainTitle: 'لسه جديد؟',
+              btmTtile: 'سجّل دلوقتى!',
+            ),
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.025),
           ],
         ),
       ),
-    );
-  }
-}
-
-class CustomAuthButtomRowWithTitle extends StatelessWidget {
-  const CustomAuthButtomRowWithTitle({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Text(
-          'لسه جديد؟',
-          style: TextStyles.font18Medium(
-            context,
-          ).copyWith(color: Color(0xff212121)),
-        ),
-        Spacer(),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-            shape: RoundedRectangleBorder(
-              side: BorderSide(color: Color(0xffECECEC), width: 1),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            backgroundColor: Color(0XFFFFFFFF),
-            elevation: 0,
-          ),
-          onPressed: () {},
-          child: Text(
-            'سجل دلوقتي!',
-            style: TextStyles.font18Medium(context).copyWith(),
-          ),
-        ),
-      ],
     );
   }
 }
