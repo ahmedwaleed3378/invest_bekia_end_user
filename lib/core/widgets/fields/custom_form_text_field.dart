@@ -12,8 +12,10 @@ class CustomTextField extends StatefulWidget {
     required this.isPassword,
     required this.isLogin,
     required this.isPhone,
+    required this.textInputType,
   });
   final String mainTitle, hintTitle;
+  final TextInputType textInputType;
 
   bool obscureText;
   final bool isPassword, isLogin, isPhone;
@@ -45,6 +47,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
           ),
           child: TextFormField(
+            keyboardType: widget.textInputType,
             validator: (value) {
               if (value == null || value.isEmpty) {
                 return '${widget.hintTitle} مطلوب';

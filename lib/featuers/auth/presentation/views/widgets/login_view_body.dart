@@ -19,6 +19,7 @@ class LoginViewBody extends StatefulWidget {
 class _LoginViewBodyState extends State<LoginViewBody> {
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,76 +27,112 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       child: Form(
         key: _formKey,
         autovalidateMode: _autovalidateMode,
-        child: Column(
-          children: [
-            SafeArea(
-              child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
-            ),
-            SvgPicture.asset(Assets.imagesSvgLogoBekia, height: 60),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
-            Text(
-              'أهلا بعودتك !',
-              style: TextStyles.font24ExtraBold(
-                context,
-              ).copyWith(color: Color(0xff212121)),
-            ),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
-            CustomTextField(
-              isPhone: true,
-              isLogin: true,
-              mainTitle: 'رقم الموبايل',
-              hintTitle: 'دخل رقم موبايلك',
-
-              obscureText: false,
-              isPassword: false,
-            ),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.025),
-            CustomTextField(
-              isPhone: false,
-              isLogin: true,
-              mainTitle: 'كلمة السر',
-              hintTitle: 'دخل كلمة السر',
-              obscureText: true,
-              isPassword: true,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: () {},
-                child: Text(
-                  'نسيت كلمه السر ؟',
-                  style: TextStyles.font18SemiBold(
-                    context,
-                  ).copyWith(color: AppColors.secondaryColorTwoColor),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: SafeArea(
+                child: SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.02,
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.042),
-            CustomBigElevatedButtomWithTitle(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
-                } else {
-                  setState(() {
-                    _autovalidateMode = AutovalidateMode.always;
-                  });
-                }
-              },
-              title: 'تسجيل الدخول',
+            SliverToBoxAdapter(
+              child: SvgPicture.asset(Assets.imagesSvgLogoBekia, height: 60),
             ),
-            Spacer(),
-            CustomAuthButtomRowWithTitle(
-              onPress: () {
-                g.Get.off(
-                  () => const RegisterView(),
-                  transition: g.Transition.fade,
-                  duration: const Duration(milliseconds: 800),
-                );
-              },
-              mainTitle: 'لسه جديد؟',
-              btmTtile: 'سجّل دلوقتى!',
+            SliverToBoxAdapter(
+              child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
             ),
-            SizedBox(height: MediaQuery.sizeOf(context).height * 0.025),
+            SliverToBoxAdapter(
+              child: Text(
+                'أهلا بعودتك !',
+                style: TextStyles.font24ExtraBold(
+                  context,
+                ).copyWith(color: const Color(0xff212121)),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
+            ),
+            SliverToBoxAdapter(
+              child: CustomTextField(
+                textInputType: TextInputType.phone,
+                isPhone: true,
+                isLogin: true,
+                mainTitle: 'رقم الموبايل',
+                hintTitle: 'دخل رقم موبايلك',
+                obscureText: false,
+                isPassword: false,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.025,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: CustomTextField(
+                textInputType: TextInputType.text,
+                isPhone: false,
+                isLogin: true,
+                mainTitle: 'كلمة السر',
+                hintTitle: 'دخل كلمة السر',
+                obscureText: true,
+                isPassword: true,
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'نسيت كلمه السر ؟',
+                    style: TextStyles.font18SemiBold(
+                      context,
+                    ).copyWith(color: AppColors.secondaryColorTwoColor),
+                  ),
+                ),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: SizedBox(
+                height: MediaQuery.sizeOf(context).height * 0.042,
+              ),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                children: [
+                  CustomBigElevatedButtomWithTitle(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.save();
+                        // بعد التحقق يمكنك التنقل مثلاً إلى صفحة رئيسية
+                      } else {
+                        setState(() {
+                          _autovalidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
+                    title: 'تسجيل الدخول',
+                  ),
+                  const Spacer(),
+                  CustomAuthButtomRowWithTitle(
+                    onPress: () {
+                      g.Get.off(
+                        () => const RegisterView(),
+                        transition: g.Transition.fade,
+                        duration: const Duration(milliseconds: 800),
+                      );
+                    },
+                    mainTitle: 'لسه جديد؟',
+                    btmTtile: 'سجّل دلوقتى!',
+                  ),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.025),
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -57,6 +57,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             ),
             SliverToBoxAdapter(
               child: CustomTextField(
+                textInputType: TextInputType.text,
+
                 isPhone: false,
                 isLogin: true,
                 mainTitle: 'الاسم الكامل',
@@ -72,6 +74,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             ),
             SliverToBoxAdapter(
               child: CustomTextField(
+                textInputType: TextInputType.phone,
                 isPhone: true,
                 isLogin: false,
                 mainTitle: 'رقم الموبايل',
@@ -87,6 +90,8 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
             ),
             SliverToBoxAdapter(
               child: CustomTextField(
+                textInputType: TextInputType.text,
+
                 isPhone: false,
                 isLogin: false,
                 mainTitle: 'كلمة السر',
