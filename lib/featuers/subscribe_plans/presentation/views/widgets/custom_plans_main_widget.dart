@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/featuers/subscribe_plans/data/model/plan_model.dart';
+import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/confirm_subscribe_view.dart';
 import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/widgets/custom_plan_item.dart';
 
 class CustomPlansMainWidget extends StatefulWidget {
@@ -12,6 +14,14 @@ class CustomPlansMainWidget extends StatefulWidget {
 }
 
 class _CustomPlansMainWidgetState extends State<CustomPlansMainWidget> {
+  void goToSubscribe() {
+    g.Get.to(
+      () => const ConfirmSubscribeView(),
+      transition: g.Transition.leftToRight,
+      duration: const Duration(milliseconds: 400),
+    );
+  }
+
   final List<PlanModel> plans = [
     PlanModel(
       image: Assets.imagesStarter,
@@ -61,13 +71,45 @@ class _CustomPlansMainWidgetState extends State<CustomPlansMainWidget> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 10),
-                CustomPlanItem(planModel: plans[0]),
+                CustomPlanItem(
+                  planModel: plans[0],
+                  onPressed: () {
+                    goToSubscribe();
+                    setState(() {
+                      plans[0].isYourPlan = !plans[0].isYourPlan;
+                      plans[1].isYourPlan = false;
+                      plans[2].isYourPlan = false;
+                    });
+                  },
+                ),
                 SizedBox(height: 10),
 
-                CustomPlanItem(planModel: plans[1]),
+                CustomPlanItem(
+                  planModel: plans[1],
+                  onPressed: () {
+                    goToSubscribe();
+
+                    setState(() {
+                      plans[0].isYourPlan = false;
+                      plans[1].isYourPlan = !plans[1].isYourPlan;
+                      plans[2].isYourPlan = false;
+                    });
+                  },
+                ),
                 SizedBox(height: 10),
 
-                CustomPlanItem(planModel: plans[2]),
+                CustomPlanItem(
+                  planModel: plans[2],
+                  onPressed: () {
+                    goToSubscribe();
+
+                    setState(() {
+                      plans[0].isYourPlan = false;
+                      plans[1].isYourPlan = false;
+                      plans[2].isYourPlan = !plans[2].isYourPlan;
+                    });
+                  },
+                ),
 
                 SizedBox(height: 30),
               ],

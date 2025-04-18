@@ -11,9 +11,13 @@ import 'package:invest_bekia/featuers/subscribe_plans/data/model/plan_model.dart
 import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/widgets/custom_plan_row_for_details.dart';
 
 class CustomPlanItem extends StatefulWidget {
-  const CustomPlanItem({super.key, required this.planModel});
+  const CustomPlanItem({
+    super.key,
+    required this.planModel,
+    required this.onPressed,
+  });
   final PlanModel planModel;
-
+  final void Function() onPressed;
   @override
   State<CustomPlanItem> createState() => _CustomPlanItemState();
 }
@@ -119,7 +123,7 @@ class _CustomPlanItemState extends State<CustomPlanItem> {
           ),
           SizedBox(height: 15),
           CustomBigElevatedButtomWithTitle(
-            onPressed: () {},
+            onPressed: widget.onPressed,
             isDisabled: widget.planModel.isYourPlan ? true : false,
             title:
                 widget.planModel.isYourPlan ? 'باقتك الحاليه' : 'اختار الباقه',
