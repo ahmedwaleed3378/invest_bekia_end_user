@@ -14,7 +14,7 @@ class CustomAccountSettingsMainWidget extends StatefulWidget {
 
 class _CustomAccountSettingsMainWidgetState
     extends State<CustomAccountSettingsMainWidget> {
-  bool isExpandedAccoutData = false, isExpandedPasswordReset = false;
+  bool isExpandedAccoutData = true, isExpandedPasswordReset = false;
   @override
   @override
   Widget build(BuildContext context) {

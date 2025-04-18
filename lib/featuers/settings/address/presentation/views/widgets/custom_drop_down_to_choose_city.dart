@@ -42,12 +42,43 @@ class _CustomDropDownMenuToChooseCityState
     'سوهاج',
   ];
 
-  String? selectedGovernorate = 'القاهرة';
+  String selectedGovernorate = 'القاهرة';
+
+  void _openBottomSheet() {
+    showModalBottomSheet(
+      backgroundColor: Color(0xffffffff),
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return ListView.separated(
+          padding: const EdgeInsets.all(16),
+          itemCount: governorates.length,
+          itemBuilder: (context, index) {
+            final city = governorates[index];
+            return ListTile(
+              title: Text(city, style: TextStyles.font18Regular(context)),
+              trailing: city == selectedGovernorate ? Icon(Icons.check) : null,
+              onTap: () {
+                setState(() {
+                  selectedGovernorate = city;
+                });
+                widget.onSelected(city);
+                Navigator.pop(context);
+              },
+            );
+          },
+          separatorBuilder: (_, __) => Divider(),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: TextDirection.rtl, // لعرض النص من اليمين لليسار
+      textDirection: TextDirection.rtl,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -58,46 +89,28 @@ class _CustomDropDownMenuToChooseCityState
             ).copyWith(color: Color(0xff6B6B6B)),
           ),
           const SizedBox(height: 8),
-          DropdownButtonFormField<String>(
-            dropdownColor: Color(0xffffffff),
-            value: selectedGovernorate,
-            items:
-                governorates.map((governorate) {
-                  return DropdownMenuItem(
-                    value: governorate,
-                    child: Text(governorate),
-                  );
-                }).toList(),
-            onChanged: (value) {
-              setState(() {
-                selectedGovernorate = value;
-                widget.onSelected(value ?? selectedGovernorate!);
-              });
-            },
-            decoration: InputDecoration(
-              fillColor: Color(0xffffffff),
-              filled: true,
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 16,
-              ),
-              border: OutlineInputBorder(
+          GestureDetector(
+            onTap: _openBottomSheet,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Color(0xffECECEC), width: 1),
                 borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Color(0xffECECEC), width: 1),
               ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Color(0xffECECEC), width: 1),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Color(0xffECECEC), width: 1),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    selectedGovernorate,
+                    style: TextStyles.font18Regular(
+                      context,
+                    ).copyWith(color: Colors.black),
+                  ),
+                  Icon(IconlyLight.arrow_down_2),
+                ],
               ),
             ),
-            style: TextStyles.font18Regular(
-              context,
-            ).copyWith(color: Colors.black),
-            icon: Icon(IconlyLight.arrow_down_2),
           ),
         ],
       ),
