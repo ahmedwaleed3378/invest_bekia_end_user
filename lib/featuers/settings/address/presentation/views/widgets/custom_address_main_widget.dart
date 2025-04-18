@@ -4,6 +4,7 @@ import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/featuers/settings/address/data/models/address_model.dart';
 import 'package:invest_bekia/featuers/settings/address/presentation/views/add_new_address_view.dart';
+import 'package:invest_bekia/featuers/settings/address/presentation/views/edit_address_view.dart';
 import 'package:invest_bekia/featuers/settings/address/presentation/views/widgets/custom_address_Item.dart';
 
 class CustomAddressMainWidget extends StatelessWidget {
@@ -50,7 +51,13 @@ class CustomAddressMainWidget extends StatelessWidget {
                         address: addresses[index].address,
                         addressType: addresses[index].addressType,
                         onTapeDelete: () {},
-                        onTapeEdit: () {},
+                        onTapeEdit: () {
+                          g.Get.to(
+                            () => const EditAddressView(),
+                            transition: g.Transition.leftToRight,
+                            duration: const Duration(milliseconds: 400),
+                          );
+                        },
                         name: addresses[index].name,
                         phone: addresses[index].phone,
                         isVerified: addresses[index].isVerified,
