@@ -8,6 +8,7 @@ import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/login_view_body.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/register_view_body.dart';
+import 'package:invest_bekia/featuers/orders/presentation/views/orders_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/main_settings_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -48,7 +49,7 @@ class _HomeViewState extends State<HomeView> {
         controller: _pageController,
         children: [
           MainSettingsView(),
-          RegisterViewBody(),
+          OrdersView(),
           RegisterViewBody(),
           LoginViewBody(),
         ],
