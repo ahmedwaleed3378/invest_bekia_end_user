@@ -33,7 +33,7 @@ class CustomContainerWithTextAndBtmInSettings extends StatelessWidget {
                   SizedBox(
                     width: 150,
                     child: Text(
-                      'من شوية كراكيب لـ سهم في سيوة سكاي! بدل ما ترميها استثمر بيها',
+                      title,
                       style: TextStyles.font18Medium(
                         context,
                       ).copyWith(color: Colors.white),

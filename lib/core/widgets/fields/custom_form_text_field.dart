@@ -13,9 +13,11 @@ class CustomTextField extends StatefulWidget {
     required this.isLogin,
     required this.isPhone,
     required this.textInputType,
+    this.textEditingController,
   });
   final String mainTitle, hintTitle;
   final TextInputType textInputType;
+  final TextEditingController? textEditingController;
 
   bool obscureText;
   final bool isPassword, isLogin, isPhone;
@@ -47,6 +49,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
           ),
           child: TextFormField(
+            controller: widget.textEditingController,
             keyboardType: widget.textInputType,
             validator: (value) {
               if (value == null || value.isEmpty) {

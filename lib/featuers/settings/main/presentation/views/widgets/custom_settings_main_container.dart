@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
+import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/account_settings_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_item.dart';
 
 class CustomSettingsMainContainer extends StatelessWidget {
@@ -16,7 +18,13 @@ class CustomSettingsMainContainer extends StatelessWidget {
       child: Column(
         children: [
           CustomSettingsItem(
-            onPressed: () {},
+            onPressed: () {
+              g.Get.to(
+                () => const AccountSettingsView(),
+                transition: g.Transition.leftToRight,
+                duration: const Duration(milliseconds: 400),
+              );
+            },
             title: "إعدادات الحساب",
             icon: Assets.imagesSetting,
           ),

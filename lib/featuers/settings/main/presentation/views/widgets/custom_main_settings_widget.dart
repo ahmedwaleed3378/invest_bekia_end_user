@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
-import 'package:invest_bekia/core/utils/app_images.dart';
-import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_container_settings_with_title_and_btm.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_header_of_main_settings_item_with_name_and_address.dart';
-import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_item.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_main_container.dart';
 
 class CustomMainSettingsWidget extends StatelessWidget {
