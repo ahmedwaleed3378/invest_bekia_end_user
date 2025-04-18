@@ -7,9 +7,9 @@ import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/login_view_body.dart';
-import 'package:invest_bekia/featuers/auth/presentation/views/widgets/register_view_body.dart';
 import 'package:invest_bekia/featuers/orders/presentation/views/orders_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/main_settings_view.dart';
+import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/plans_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -50,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
         children: [
           MainSettingsView(),
           OrdersView(),
-          RegisterViewBody(),
+          PlansView(),
           LoginViewBody(),
         ],
       ),

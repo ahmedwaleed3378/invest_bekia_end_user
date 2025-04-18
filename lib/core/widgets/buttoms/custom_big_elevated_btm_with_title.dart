@@ -8,9 +8,10 @@ class CustomBigElevatedButtomWithTitle extends StatelessWidget {
     required this.onPressed,
     required this.title,
     this.isCancle = false,
+    this.isDisabled = false,
   });
   final void Function() onPressed;
-  final bool isCancle;
+  final bool isCancle, isDisabled;
   final String title;
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class CustomBigElevatedButtomWithTitle extends StatelessWidget {
         backgroundColor:
             isCancle ? Color(0xffffffff) : AppColors.primaryColorOneColor,
       ),
-      onPressed: onPressed,
+      onPressed: isDisabled ? null : onPressed,
       child: Text(
         title,
         style: TextStyles.font18SemiBold(context).copyWith(

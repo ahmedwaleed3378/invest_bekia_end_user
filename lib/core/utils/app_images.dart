@@ -10,6 +10,10 @@ class Assets {
   /// assets/images/basket.png
   static const String imagesBasket = "assets/images/basket.png";
 
+  /// Assets for imagesBekia
+  /// assets/images/bekia.svg
+  static const String imagesBekia = "assets/images/bekia.svg";
+
   /// Assets for imagesBigMoney
   /// assets/images/bigMoney.svg
   static const String imagesBigMoney = "assets/images/bigMoney.svg";
@@ -38,6 +42,10 @@ class Assets {
   /// assets/images/cartoon.png
   static const String imagesCartoon = "assets/images/cartoon.png";
 
+  /// Assets for imagesCash
+  /// assets/images/cash.svg
+  static const String imagesCash = "assets/images/cash.svg";
+
   /// Assets for imagesCongraltulations
   /// assets/images/congraltulations.svg
   static const String imagesCongraltulations = "assets/images/congraltulations.svg";
@@ -61,6 +69,10 @@ class Assets {
   /// Assets for imagesGift
   /// assets/images/gift.svg
   static const String imagesGift = "assets/images/gift.svg";
+
+  /// Assets for imagesGold
+  /// assets/images/gold.svg
+  static const String imagesGold = "assets/images/gold.svg";
 
   /// Assets for imagesGym
   /// assets/images/gym.png
@@ -178,6 +190,10 @@ class Assets {
   /// assets/images/setting.svg
   static const String imagesSetting = "assets/images/setting.svg";
 
+  /// Assets for imagesSilver
+  /// assets/images/silver.svg
+  static const String imagesSilver = "assets/images/silver.svg";
+
   /// Assets for imagesSoldScrap
   /// assets/images/sold_scrap.svg
   static const String imagesSoldScrap = "assets/images/sold_scrap.svg";
@@ -185,6 +201,10 @@ class Assets {
   /// Assets for imagesSplashBackground
   /// assets/images/splash_background.svg
   static const String imagesSplashBackground = "assets/images/splash_background.svg";
+
+  /// Assets for imagesStarter
+  /// assets/images/starter.svg
+  static const String imagesStarter = "assets/images/starter.svg";
 
   /// Assets for imagesStock
   /// assets/images/stock.svg
