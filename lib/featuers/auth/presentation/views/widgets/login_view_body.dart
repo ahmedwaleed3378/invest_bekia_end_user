@@ -9,6 +9,7 @@ import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/register_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/reset_password_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
+import 'package:invest_bekia/featuers/home/presentation/views/home_view.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -115,7 +116,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        // بعد التحقق يمكنك التنقل مثلاً إلى صفحة رئيسية
+                        g.Get.off(
+                          () => const HomeView(),
+                          transition: g.Transition.fade,
+                          duration: const Duration(milliseconds: 400),
+                        );
                       } else {
                         setState(() {
                           _autovalidateMode = AutovalidateMode.always;

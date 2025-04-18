@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/core/widgets/helping_widgets/custom_container_with_svg_image.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/my_pin_enter_code.dart';
+import 'package:invest_bekia/featuers/home/presentation/views/home_view.dart';
 
 class VerifyCodeBody extends StatefulWidget {
   const VerifyCodeBody({super.key});
@@ -127,7 +129,13 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CustomBigElevatedButtomWithTitle(
-              onPressed: () {},
+              onPressed: () {
+                g.Get.off(
+                  () => const HomeView(),
+                  transition: g.Transition.fade,
+                  duration: const Duration(milliseconds: 400),
+                );
+              },
               title: 'أكد الكود',
             ),
           ),

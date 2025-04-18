@@ -14,6 +14,14 @@ class Assets {
   /// assets/images/bigMoney.svg
   static const String imagesBigMoney = "assets/images/bigMoney.svg";
 
+  /// Assets for imagesBox
+  /// assets/images/box.svg
+  static const String imagesBox = "assets/images/box.svg";
+
+  /// Assets for imagesBoxFill
+  /// assets/images/box_fill.svg
+  static const String imagesBoxFill = "assets/images/box_fill.svg";
+
   /// Assets for imagesCartoon
   /// assets/images/cartoon.png
   static const String imagesCartoon = "assets/images/cartoon.png";
@@ -21,6 +29,14 @@ class Assets {
   /// Assets for imagesCongraltulations
   /// assets/images/congraltulations.svg
   static const String imagesCongraltulations = "assets/images/congraltulations.svg";
+
+  /// Assets for imagesCrown
+  /// assets/images/crown.svg
+  static const String imagesCrown = "assets/images/crown.svg";
+
+  /// Assets for imagesCrownFill
+  /// assets/images/crown_fill.svg
+  static const String imagesCrownFill = "assets/images/crown_fill.svg";
 
   /// Assets for imagesDart
   /// assets/images/dart.svg
@@ -38,9 +54,17 @@ class Assets {
   /// assets/images/gym.png
   static const String imagesGym = "assets/images/gym.png";
 
+  /// Assets for imagesHome
+  /// assets/images/home.svg
+  static const String imagesHome = "assets/images/home.svg";
+
   /// Assets for imagesHomeDevices
   /// assets/images/homeDevices.png
   static const String imagesHomeDevices = "assets/images/homeDevices.png";
+
+  /// Assets for imagesHomeFill
+  /// assets/images/home_fill.svg
+  static const String imagesHomeFill = "assets/images/home_fill.svg";
 
   /// Assets for imagesInvestBekia
   /// assets/images/invest_bekia.png
@@ -81,6 +105,14 @@ class Assets {
   /// Assets for imagesPassObscure
   /// assets/images/passObscure.svg
   static const String imagesPassObscure = "assets/images/passObscure.svg";
+
+  /// Assets for imagesPerson
+  /// assets/images/person.svg
+  static const String imagesPerson = "assets/images/person.svg";
+
+  /// Assets for imagesPersonFill
+  /// assets/images/person_fill.svg
+  static const String imagesPersonFill = "assets/images/person_fill.svg";
 
   /// Assets for imagesPlastic
   /// assets/images/plastic.png
