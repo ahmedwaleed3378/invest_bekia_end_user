@@ -79,7 +79,7 @@ class ContainerOfResetPassword extends StatelessWidget {
               Expanded(
                 child: CustomBigElevatedButtomWithTitle(
                   onPressed: onTapUpdate,
-                  title: 'تحديث',
+                  title: 'تغيير كلمة السر',
                 ),
               ),
               SizedBox(width: 10), // add spacing between buttons
