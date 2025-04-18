@@ -10,7 +10,8 @@ import 'package:invest_bekia/featuers/auth/presentation/views/verify_reset_passw
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
 
 class ResetPasswordViewBody extends StatefulWidget {
-  const ResetPasswordViewBody({super.key});
+  const ResetPasswordViewBody({super.key, this.isInApp = false});
+  final bool isInApp;
 
   @override
   State<ResetPasswordViewBody> createState() => _ResetPasswordViewBodyState();
@@ -44,7 +45,7 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
               Text(
-                'دخل كود التحقق اللي بعتناه على الرقم',
+                'اكتب رقم موبايلك علشان نبعتلك كود تغير بيه الباسورد',
                 style: TextStyles.font18Medium(
                   context,
                 ).copyWith(color: const Color(0xff6B6B6B)),
@@ -81,14 +82,16 @@ class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
               Spacer(),
               CustomAuthButtomRowWithTitle(
                 onPress: () {
-                  g.Get.off(
-                    () => const LoginView(),
-                    transition: g.Transition.fade,
-                    duration: const Duration(milliseconds: 800),
-                  );
+                  widget.isInApp
+                      ? g.Get.back()
+                      : g.Get.off(
+                        () => const LoginView(),
+                        transition: g.Transition.fade,
+                        duration: const Duration(milliseconds: 800),
+                      );
                 },
                 mainTitle: 'تذكرت كلمه المرور ؟',
-                btmTtile: 'سجّل دخول!',
+                btmTtile: widget.isInApp ? 'العودة' : 'سجّل دخول!',
               ),
               SizedBox(height: MediaQuery.sizeOf(context).height * 0.025),
             ],

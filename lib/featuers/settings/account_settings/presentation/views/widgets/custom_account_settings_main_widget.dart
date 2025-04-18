@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:iconly/iconly.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
-import 'package:invest_bekia/core/utils/app_images.dart';
-import 'package:invest_bekia/core/utils/app_styles.dart';
-import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
-import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
+import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/widgets/container_of_personal_data.dart';
+import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/widgets/container_of_reset_password.dart';
+import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/widgets/custom_list_tile_of_accout_settings.dart';
 
-class CustomAccountSettingsMainWidget extends StatelessWidget {
+class CustomAccountSettingsMainWidget extends StatefulWidget {
   const CustomAccountSettingsMainWidget({super.key});
 
+  @override
+  State<CustomAccountSettingsMainWidget> createState() =>
+      _CustomAccountSettingsMainWidgetState();
+}
+
+class _CustomAccountSettingsMainWidgetState
+    extends State<CustomAccountSettingsMainWidget> {
+  bool isExpandedAccoutData = false, isExpandedPasswordReset = false;
+  @override
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,133 +35,65 @@ class CustomAccountSettingsMainWidget extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                SizedBox(height: 10),
-                ContainerOfPersonalDetails(
-                  onTapToEditPhoto: () {},
-                  name: 'مصطفى مبروك',
-                  phone: '0123456789',
-                  email: 'qHq0I@example.com',
+                const SizedBox(height: 10),
+                AnimatedCrossFade(
+                  duration: const Duration(milliseconds: 300),
+                  crossFadeState:
+                      isExpandedAccoutData
+                          ? CrossFadeState.showFirst
+                          : CrossFadeState.showSecond,
+                  firstChild: ContainerOfPersonalDetails(
+                    onTapCancle: () {
+                      setState(() {
+                        isExpandedAccoutData = !isExpandedAccoutData;
+                      });
+                    },
+                    onTapUpdate: () {},
+                    onTapToEditPhoto: () {},
+                    name: 'مصطفى مبروك',
+                    phone: '0123456789',
+                    email: 'qHq0I@example.com',
+                  ),
+                  secondChild: CustomListTileOfAccoutSettings(
+                    onTap: () {
+                      setState(() {
+                        isExpandedAccoutData = !isExpandedAccoutData;
+                      });
+                    },
+                    title: 'المعلومات الشخصية',
+                  ),
                 ),
+                const SizedBox(height: 20),
+                AnimatedCrossFade(
+                  duration: const Duration(milliseconds: 300),
+                  crossFadeState:
+                      isExpandedPasswordReset
+                          ? CrossFadeState.showFirst
+                          : CrossFadeState.showSecond,
+                  firstChild: ContainerOfResetPassword(
+                    onTapCancle: () {
+                      setState(() {
+                        isExpandedPasswordReset = !isExpandedPasswordReset;
+                      });
+                    },
+                    onTapUpdate: () {},
+                    password: 'sadsdasd',
+                  ),
+                  secondChild: CustomListTileOfAccoutSettings(
+                    title: 'تغيير الرقم السري',
+                    onTap: () {
+                      setState(() {
+                        isExpandedPasswordReset = !isExpandedPasswordReset;
+                      });
+                    },
+                  ),
+                ),
+                const SizedBox(height: 20),
               ],
             ),
           ),
         ),
       ],
-    );
-  }
-}
-
-class ContainerOfPersonalDetails extends StatelessWidget {
-  const ContainerOfPersonalDetails({
-    super.key,
-    required this.name,
-    required this.phone,
-    required this.email,
-    required this.onTapToEditPhoto,
-  });
-  final String name, phone, email;
-  final void Function() onTapToEditPhoto;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: Color(0xffECECEC), width: 1),
-
-        color: Color(0xffffffff),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('المعلومات الشخصية', style: TextStyles.font18SemiBold(context)),
-          SizedBox(height: 10),
-          Center(
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage(Assets.imagesAvatar),
-                ),
-                Positioned(
-                  bottom: -5,
-
-                  child: InkWell(
-                    onTap: onTapToEditPhoto,
-                    child: CircleAvatar(
-                      radius: 15,
-                      backgroundColor: AppColors.primaryColorOneColor,
-                      child: Icon(
-                        IconlyBold.edit,
-                        color: AppColors.backGroundColor,
-                        size: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
-          CustomTextField(
-            mainTitle: 'الاسم كامل',
-            hintTitle: 'ادخل الاسم كامل',
-
-            obscureText: false,
-            textEditingController: TextEditingController(text: name),
-            isPassword: false,
-            isLogin: false,
-            isPhone: false,
-            textInputType: TextInputType.text,
-          ),
-          SizedBox(height: 15),
-          CustomTextField(
-            mainTitle: 'رقم الموبايل',
-            hintTitle: 'ادخل رقم الموبايل',
-            obscureText: false,
-            textEditingController: TextEditingController(text: phone),
-
-            isPassword: false,
-            isLogin: false,
-            isPhone: true,
-            textInputType: TextInputType.text,
-          ),
-          SizedBox(height: 15),
-          CustomTextField(
-            mainTitle: 'الايميل',
-            hintTitle: 'ادخل الايميل',
-            obscureText: false,
-            textEditingController: TextEditingController(text: email),
-
-            isPassword: false,
-            isLogin: false,
-            isPhone: true,
-            textInputType: TextInputType.text,
-          ),
-          SizedBox(height: 10),
-          Row(
-            children: [
-              Expanded(
-                child: CustomBigElevatedButtomWithTitle(
-                  onPressed: () {},
-                  title: 'تحديث',
-                ),
-              ),
-              SizedBox(width: 10), // add spacing between buttons
-              Expanded(
-                child: CustomBigElevatedButtomWithTitle(
-                  isCancle: true,
-                  onPressed: () {},
-                  title: 'إلغاء',
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }
