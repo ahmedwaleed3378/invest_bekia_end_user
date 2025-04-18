@@ -5,6 +5,8 @@ import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_container_settings_with_title_and_btm.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_header_of_main_settings_item_with_name_and_address.dart';
+import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_item.dart';
+import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_main_container.dart';
 
 class CustomMainSettingsWidget extends StatelessWidget {
   const CustomMainSettingsWidget({super.key});
@@ -40,9 +42,9 @@ class CustomMainSettingsWidget extends StatelessWidget {
                       'من شوية كراكيب لـ سهم في سيوة سكاي! بدل ما ترميها استثمر بيها',
                   onPressed: () {},
                 ),
-                Text('sda'),
-                Text('sda'),
-                Text('sda'),
+                SizedBox(height: 20),
+                CustomSettingsMainContainer(),
+                SizedBox(height: 40),
               ],
             ),
           ),
