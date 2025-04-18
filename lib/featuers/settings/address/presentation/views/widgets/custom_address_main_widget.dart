@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/featuers/settings/address/data/models/address_model.dart';
+import 'package:invest_bekia/featuers/settings/address/presentation/views/add_new_address_view.dart';
 import 'package:invest_bekia/featuers/settings/address/presentation/views/widgets/custom_address_Item.dart';
 
 class CustomAddressMainWidget extends StatelessWidget {
@@ -60,7 +62,13 @@ class CustomAddressMainWidget extends StatelessWidget {
 
                 CustomBigElevatedButtomWithTitle(
                   isCancle: true,
-                  onPressed: () {},
+                  onPressed: () {
+                    g.Get.to(
+                      () => const AddNewAddressView(),
+                      transition: g.Transition.leftToRight,
+                      duration: const Duration(milliseconds: 400),
+                    );
+                  },
                   title: 'اضافة عنوان جديد',
                 ),
                 const SizedBox(height: 20),
