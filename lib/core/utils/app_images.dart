@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_single_quotes
 class Assets {
   Assets._();
-
+  
   /// Assets for imagesAvatar
   /// assets/images/avatar.jpg
   static const String imagesAvatar = "assets/images/avatar.jpg";
@@ -44,8 +44,7 @@ class Assets {
 
   /// Assets for imagesCongraltulations
   /// assets/images/congraltulations.svg
-  static const String imagesCongraltulations =
-      "assets/images/congraltulations.svg";
+  static const String imagesCongraltulations = "assets/images/congraltulations.svg";
 
   /// Assets for imagesCrown
   /// assets/images/crown.svg
@@ -70,6 +69,10 @@ class Assets {
   /// Assets for imagesGold
   /// assets/images/gold.svg
   static const String imagesGold = "assets/images/gold.svg";
+
+  /// Assets for imagesGreenRecycle
+  /// assets/images/green_recycle.svg
+  static const String imagesGreenRecycle = "assets/images/green_recycle.svg";
 
   /// Assets for imagesGym
   /// assets/images/gym.png
@@ -123,6 +126,10 @@ class Assets {
   /// assets/images/money.svg
   static const String imagesMoney = "assets/images/money.svg";
 
+  /// Assets for imagesNoNotifaction
+  /// assets/images/no_notifaction.svg
+  static const String imagesNoNotifaction = "assets/images/no_notifaction.svg";
+
   /// Assets for imagesOil
   /// assets/images/oil.png
   static const String imagesOil = "assets/images/oil.png";
@@ -133,8 +140,7 @@ class Assets {
 
   /// Assets for imagesOnBoardingThree
   /// assets/images/on_boarding_three.png
-  static const String imagesOnBoardingThree =
-      "assets/images/on_boarding_three.png";
+  static const String imagesOnBoardingThree = "assets/images/on_boarding_three.png";
 
   /// Assets for imagesOnBoardingTwo
   /// assets/images/on_boarding_two.png
@@ -176,6 +182,10 @@ class Assets {
   /// assets/images/recycle_bg.svg
   static const String imagesRecycleBg = "assets/images/recycle_bg.svg";
 
+  /// Assets for imagesRight
+  /// assets/images/right.svg
+  static const String imagesRight = "assets/images/right.svg";
+
   /// Assets for imagesRobapecia
   /// assets/images/Robapecia.png
   static const String imagesRobapecia = "assets/images/Robapecia.png";
@@ -188,6 +198,10 @@ class Assets {
   /// assets/images/setting.svg
   static const String imagesSetting = "assets/images/setting.svg";
 
+  /// Assets for imagesShippingCAR
+  /// assets/images/shipping_CAR.svg
+  static const String imagesShippingCAR = "assets/images/shipping_CAR.svg";
+
   /// Assets for imagesSilver
   /// assets/images/silver.svg
   static const String imagesSilver = "assets/images/silver.svg";
@@ -198,8 +212,7 @@ class Assets {
 
   /// Assets for imagesSplashBackground
   /// assets/images/splash_background.svg
-  static const String imagesSplashBackground =
-      "assets/images/splash_background.svg";
+  static const String imagesSplashBackground = "assets/images/splash_background.svg";
 
   /// Assets for imagesStarter
   /// assets/images/starter.svg
@@ -221,3 +234,4 @@ class Assets {
   /// assets/images/yourMoney.svg
   static const String imagesYourMoney = "assets/images/yourMoney.svg";
 }
+

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/featuers/home/data/model/main_app_bar_item_model.dart';
 import 'package:invest_bekia/featuers/home/presentation/views/widgets/custom_header_info_container.dart';
 import 'package:invest_bekia/featuers/home/presentation/views/widgets/custom_welcome_user_home_with_image_and_notifcation.dart';
+import 'package:invest_bekia/featuers/notification/presentation/views/notification_view.dart';
 
 class CustomSliverAppBarForHome extends StatefulWidget {
   const CustomSliverAppBarForHome({super.key, required this.name});
@@ -51,7 +53,13 @@ class _CustomSliverAppBarForHomeState extends State<CustomSliverAppBarForHome> {
               CustomWelcomeUserHeaderWithNotifcation(
                 name: widget.name,
                 notificationCount: 3,
-                onTap: () {},
+                onTap: () {
+                  g.Get.to(
+                    () => const NotificationView(),
+                    transition: g.Transition.leftToRight,
+                    duration: const Duration(milliseconds: 400),
+                  );
+                },
               ),
               SizedBox(height: 20),
               Row(
