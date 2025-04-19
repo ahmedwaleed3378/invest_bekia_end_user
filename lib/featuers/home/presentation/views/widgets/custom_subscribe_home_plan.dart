@@ -49,7 +49,7 @@ class CustomSubscribeHomePlan extends StatelessWidget {
                       ),
                       child: Text(
                         'اول عائد: 1 ديسمبر 2025',
-                        style: TextStyles.font14Medium(
+                        style: TextStyles.font11Medium(
                           context,
                         ).copyWith(color: Colors.white),
                       ),
@@ -87,6 +87,10 @@ class CustomSubscribeHomePlan extends StatelessWidget {
               Spacer(),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
+                  ),
                   backgroundColor: AppColors.primaryColorOneColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),

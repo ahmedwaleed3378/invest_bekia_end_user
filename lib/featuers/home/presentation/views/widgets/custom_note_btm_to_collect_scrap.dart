@@ -20,10 +20,11 @@ class CustomNoteBtmToCollectScrap extends StatelessWidget {
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
           minimumSize: Size(double.infinity, 45),
 
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(10),
           ),
           backgroundColor: AppColors.primaryColorOneColor,
         ),
@@ -41,14 +42,14 @@ class CustomNoteBtmToCollectScrap extends StatelessWidget {
             Spacer(),
 
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 6),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(8),
                 color: Color(0xff208B59),
               ),
               child: Text(
-                'اكسب الارباح',
-                style: TextStyles.font14Medium(
+                'ضاعف ارباحك',
+                style: TextStyles.font11Medium(
                   context,
                 ).copyWith(color: Colors.white),
               ),

@@ -60,13 +60,13 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: AppColors.backGroundColor,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(
-        width: 70,
-        height: 70,
+        width: 55,
+        height: 55,
         child: FloatingActionButton(
           shape: const CircleBorder(),
           elevation: 0,
           backgroundColor: AppColors.primaryColorOneColor,
-          child: const Icon(IconlyBold.plus, color: Colors.white, size: 35),
+          child: const Icon(IconlyBold.plus, color: Colors.white, size: 30),
           onPressed: () {
             g.Get.to(
               () => const RequestSellView(),
