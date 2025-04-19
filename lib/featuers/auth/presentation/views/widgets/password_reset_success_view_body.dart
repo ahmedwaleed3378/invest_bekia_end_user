@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
@@ -38,10 +37,14 @@ class PasswordResetSuccessViewBody extends StatelessWidget {
             SizedBox(height: MediaQuery.sizeOf(context).height * 0.035),
             CustomBigElevatedButtomWithTitle(
               onPressed: () {
-                g.Get.off(
-                  () => const LoginView(),
-                  transition: g.Transition.fade,
-                  duration: const Duration(milliseconds: 400),
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const LoginView();
+                    },
+                  ),
+                  (route) => false,
                 );
               },
               title: 'تسجيل الدخول',

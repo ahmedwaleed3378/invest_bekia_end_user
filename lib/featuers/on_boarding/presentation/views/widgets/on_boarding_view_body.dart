@@ -43,7 +43,11 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               );
             },
             onTapSkip: () {
-              pageController.jumpToPage(2);
+              g.Get.off(
+                () => const RegisterView(),
+                transition: g.Transition.fade,
+                duration: const Duration(milliseconds: 400),
+              );
             },
           ),
         ),

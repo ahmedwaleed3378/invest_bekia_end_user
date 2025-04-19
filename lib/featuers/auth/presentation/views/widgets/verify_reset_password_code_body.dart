@@ -151,10 +151,14 @@ class _VerifyResetPasswordCodeBodyState
 
             child: CustomAuthButtomRowWithTitle(
               onPress: () {
-                g.Get.off(
-                  () => const LoginView(),
-                  transition: g.Transition.fade,
-                  duration: const Duration(milliseconds: 800),
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const LoginView();
+                    },
+                  ),
+                  (route) => false,
                 );
               },
               mainTitle: 'تذكرت كلمه المرور ؟',

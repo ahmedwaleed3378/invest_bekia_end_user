@@ -95,7 +95,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     );
                   },
                   child: Text(
-                    'نسيت كلمه السر ؟',
+                    'نسيت كلمه السر؟',
                     style: TextStyles.font18SemiBold(
                       context,
                     ).copyWith(color: AppColors.secondaryColorTwoColor),
