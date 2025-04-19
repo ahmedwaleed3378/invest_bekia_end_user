@@ -29,6 +29,7 @@ class CustomPersonalConfirmForSub extends StatelessWidget {
             obscureText: false,
             textEditingController: TextEditingController(text: 'مصطفى محمد'),
             isPassword: false,
+            isEnabled: false,
             isLogin: false,
             isPhone: false,
             textInputType: TextInputType.text,
@@ -39,7 +40,7 @@ class CustomPersonalConfirmForSub extends StatelessWidget {
             hintTitle: 'ادخل رقم الموبايل',
             obscureText: false,
             textEditingController: TextEditingController(text: '01005005414'),
-
+            isEnabled: false,
             isPassword: false,
             isLogin: false,
             isPhone: true,
@@ -57,6 +58,7 @@ class CustomPersonalConfirmForSub extends StatelessWidget {
           SizedBox(height: 10),
           CustomTextField(
             mainTitle: 'عدد الأسهم',
+            isEnabled: false,
             hintTitle: 'ادخل عدد الأسهم',
             obscureText: false,
             textEditingController: TextEditingController(text: '12'),

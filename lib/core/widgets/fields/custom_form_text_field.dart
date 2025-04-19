@@ -15,6 +15,7 @@ class CustomTextField extends StatefulWidget {
     required this.textInputType,
     this.textEditingController,
     this.maxLines = 1,
+    this.isEnabled = true,
   });
   final String mainTitle, hintTitle;
   final TextInputType textInputType;
@@ -22,7 +23,7 @@ class CustomTextField extends StatefulWidget {
   final int maxLines;
 
   bool obscureText;
-  final bool isPassword, isLogin, isPhone;
+  final bool isPassword, isLogin, isPhone, isEnabled;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -51,7 +52,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
           ),
           child: TextFormField(
-            enabled: true,
+            enabled: widget.isEnabled,
 
             maxLines: widget.maxLines,
             controller: widget.textEditingController,
