@@ -58,6 +58,10 @@ class Assets {
   /// assets/images/dart.svg
   static const String imagesDart = "assets/images/dart.svg";
 
+  /// Assets for imagesDoneSub
+  /// assets/images/done_sub.svg
+  static const String imagesDoneSub = "assets/images/done_sub.svg";
+
   /// Assets for imagesElectronics
   /// assets/images/electronics.png
   static const String imagesElectronics = "assets/images/electronics.png";
@@ -94,6 +98,10 @@ class Assets {
   /// assets/images/HouseSimple.svg
   static const String imagesHouseSimple = "assets/images/HouseSimple.svg";
 
+  /// Assets for imagesIcLauncher
+  /// assets/images/ic_launcher.png
+  static const String imagesIcLauncher = "assets/images/ic_launcher.png";
+
   /// Assets for imagesInvestBekia
   /// assets/images/invest_bekia.png
   static const String imagesInvestBekia = "assets/images/invest_bekia.png";
@@ -118,6 +126,10 @@ class Assets {
   /// assets/images/logout.svg
   static const String imagesLogout = "assets/images/logout.svg";
 
+  /// Assets for imagesLogoutReq
+  /// assets/images/logout_req.svg
+  static const String imagesLogoutReq = "assets/images/logout_req.svg";
+
   /// Assets for imagesMetail
   /// assets/images/metail.png
   static const String imagesMetail = "assets/images/metail.png";
@@ -129,6 +141,10 @@ class Assets {
   /// Assets for imagesNoNotifaction
   /// assets/images/no_notifaction.svg
   static const String imagesNoNotifaction = "assets/images/no_notifaction.svg";
+
+  /// Assets for imagesNoOrders
+  /// assets/images/no_orders.svg
+  static const String imagesNoOrders = "assets/images/no_orders.svg";
 
   /// Assets for imagesOil
   /// assets/images/oil.png

@@ -3,6 +3,7 @@ import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/account_settings_view.dart';
 import 'package:invest_bekia/featuers/settings/address/presentation/views/address_view.dart';
+import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_modal_btm_for_logout.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_item.dart';
 
 class CustomSettingsMainContainer extends StatelessWidget {
@@ -61,7 +62,23 @@ class CustomSettingsMainContainer extends StatelessWidget {
           ),
           Divider(color: Color(0xffE5E5E5)),
           CustomSettingsItem(
-            onPressed: () {},
+            onPressed: () {
+              showModalBottomSheet(
+                backgroundColor: Color(0xffffffff),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                  ),
+                ),
+                showDragHandle: true,
+
+                context: context,
+                builder: (context) {
+                  return CustomModalBottomSheetForLogout();
+                },
+              );
+            },
             isLogout: true,
             title: "تسجيل الخروج",
             icon: Assets.imagesLogout,
