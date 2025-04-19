@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomBtmForBack extends StatelessWidget {
-  const CustomBtmForBack({super.key});
+  const CustomBtmForBack({super.key, required this.isExit});
+  final bool isExit;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,11 @@ class CustomBtmForBack extends StatelessWidget {
         shape: BoxShape.circle,
         border: Border.all(color: Colors.black, width: 2),
       ),
-      child: const Icon(Icons.arrow_back, color: Colors.black, size: 30),
+      child: Icon(
+        isExit ? Icons.close : Icons.arrow_back,
+        color: Colors.black,
+        size: 30,
+      ),
     );
   }
 }

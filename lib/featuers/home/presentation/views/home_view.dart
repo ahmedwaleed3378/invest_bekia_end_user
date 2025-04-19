@@ -2,12 +2,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart' as g;
 import 'package:iconly/iconly.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/featuers/home/presentation/views/widgets/home_view_body.dart';
 import 'package:invest_bekia/featuers/orders/presentation/views/orders_view.dart';
+import 'package:invest_bekia/featuers/request_sell/presentation/views/request_sell_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/main_settings_view.dart';
 import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/plans_view.dart';
 
@@ -65,7 +67,13 @@ class _HomeViewState extends State<HomeView> {
           elevation: 0,
           backgroundColor: AppColors.primaryColorOneColor,
           child: const Icon(IconlyBold.plus, color: Colors.white, size: 35),
-          onPressed: () {},
+          onPressed: () {
+            g.Get.to(
+              () => const RequestSellView(),
+              transition: g.Transition.downToUp,
+              duration: const Duration(milliseconds: 400),
+            );
+          },
         ),
       ),
       bottomNavigationBar: Directionality(
