@@ -38,7 +38,7 @@ class _CustomSliverAppBarForHomeState extends State<CustomSliverAppBarForHome> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 210, // Increased height for more design space
+      expandedHeight: 230, // Increased height for more design space
       leadingWidth: 70,
       backgroundColor: AppColors.primaryColorOneColor,
       flexibleSpace: Padding(
