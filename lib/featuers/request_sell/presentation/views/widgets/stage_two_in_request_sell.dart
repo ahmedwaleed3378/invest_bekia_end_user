@@ -9,33 +9,37 @@ class StageTwoInRequestSell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'اختار المكان اللي هنعدي ناخد منه الخرده',
-          style: TextStyles.font20SemiBold(context),
-        ),
-        SizedBox(height: 15),
-        CustomContainerOfConfirmAddress(),
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
 
-        SizedBox(height: 15),
-        Text(
-          'اختار اليوم اللي يناسبك',
-          style: TextStyles.font20SemiBold(context),
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'اختار المكان اللي هنعدي ناخد منه الخرده',
+            style: TextStyles.font20SemiBold(context),
+          ),
+          SizedBox(height: 15),
+          CustomContainerOfConfirmAddress(),
 
-        SizedBox(height: 15),
-        CustomDatePicker(onDateSelected: (value) {}),
-        SizedBox(height: 20),
-        Text(
-          'حدد المعاد اللي هنعدي عليك فيه',
-          style: TextStyles.font20SemiBold(context),
-        ),
-        SizedBox(height: 10),
-        TimeSelectorWidget(),
-        SizedBox(height: 10),
-      ],
+          SizedBox(height: 15),
+          Text(
+            'اختار اليوم اللي يناسبك',
+            style: TextStyles.font20SemiBold(context),
+          ),
+
+          SizedBox(height: 15),
+          CustomDatePicker(onDateSelected: (value) {}),
+          SizedBox(height: 20),
+          Text(
+            'حدد المعاد اللي هنعدي عليك فيه',
+            style: TextStyles.font20SemiBold(context),
+          ),
+          SizedBox(height: 10),
+          TimeSelectorWidget(),
+          SizedBox(height: 30),
+        ],
+      ),
     );
   }
 }

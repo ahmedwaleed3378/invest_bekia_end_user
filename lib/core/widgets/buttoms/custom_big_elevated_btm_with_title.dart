@@ -33,6 +33,7 @@ class CustomBigElevatedButtomWithTitle extends StatelessWidget {
         style: TextStyles.font18SemiBold(context).copyWith(
           color: isCancle ? AppColors.primaryColorOneColor : Colors.white,
         ),
+        textAlign: TextAlign.center,
       ),
     );
   }

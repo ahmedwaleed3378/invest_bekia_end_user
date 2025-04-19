@@ -9,18 +9,27 @@ class StageOneInRequsetSell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min, // <== هذه مهمة جداً
+
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('نوع الخُردة', style: TextStyles.font20SemiBold(context)),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text('نوع الخُردة', style: TextStyles.font20SemiBold(context)),
+        ),
         SizedBox(height: 15),
-        ScrapTypeGridView(),
-
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: ScrapTypeGridView(),
+        ),
         SizedBox(height: 15),
-        Text('صور خردتك', style: TextStyles.font20SemiBold(context)),
-
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Text('صور خردتك', style: TextStyles.font20SemiBold(context)),
+        ),
         SizedBox(height: 15),
         MultiImageUploadBox(),
-        SizedBox(height: 20),
+        SizedBox(height: 30),
       ],
     );
   }

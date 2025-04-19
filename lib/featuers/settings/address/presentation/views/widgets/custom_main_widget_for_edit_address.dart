@@ -122,12 +122,12 @@ class _CustomMainWidgetForEditAddressState
                   ],
                 ),
 
-                SizedBox(height: 20),
+                SizedBox(height: 25),
                 CustomBigElevatedButtomWithTitle(
                   onPressed: () {},
                   title: 'حفظ العنوان',
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 40),
               ],
             ),
           ),

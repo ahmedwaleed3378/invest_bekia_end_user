@@ -17,7 +17,7 @@ class CustomBtmForBack extends StatelessWidget {
       child: Icon(
         isExit ? Icons.close : Icons.arrow_back,
         color: Colors.black,
-        size: 30,
+        size: 23,
       ),
     );
   }

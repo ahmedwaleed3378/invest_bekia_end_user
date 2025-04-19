@@ -18,34 +18,37 @@ class CustomDatePicker extends StatelessWidget {
 
         color: Color(0xffffffff),
       ),
-      child: DatePicker(
-        currentDateTextStyle: TextStyles.font20SemiBold(context),
-        slidersColor: AppColors.primaryColorOneColor,
+      child: SizedBox(
+        height: 300,
+        child: DatePicker(
+          currentDateTextStyle: TextStyles.font20SemiBold(context),
+          slidersColor: AppColors.primaryColorOneColor,
 
-        selectedCellTextStyle: TextStyles.font20SemiBold(
-          context,
-        ).copyWith(color: Colors.white),
-        daysOfTheWeekTextStyle: TextStyles.font14SemiBold(context),
-        leadingDateTextStyle: TextStyles.font20SemiBold(context),
-        enabledCellsTextStyle: TextStyles.font20SemiBold(
-          context,
-        ).copyWith(color: Color(0xff6B6B6B)),
-        disabledCellsTextStyle: TextStyles.font20SemiBold(
-          context,
-        ).copyWith(color: Color(0xff6B6B6B)),
-        selectedCellDecoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: AppColors.primaryColorOneColor,
+          selectedCellTextStyle: TextStyles.font20SemiBold(
+            context,
+          ).copyWith(color: Colors.white),
+          daysOfTheWeekTextStyle: TextStyles.font14SemiBold(context),
+          leadingDateTextStyle: TextStyles.font20SemiBold(context),
+          enabledCellsTextStyle: TextStyles.font20SemiBold(
+            context,
+          ).copyWith(color: Color(0xff6B6B6B)),
+          disabledCellsTextStyle: TextStyles.font20SemiBold(
+            context,
+          ).copyWith(color: Color(0xff6B6B6B)),
+          selectedCellDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: AppColors.primaryColorOneColor,
+          ),
+          currentDateDecoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: AppColors.backGroundColor,
+          ),
+          padding: const EdgeInsets.all(0),
+          initialDate: DateTime.now(),
+          maxDate: DateTime(2026, 4, 19),
+          minDate: DateTime.now(),
+          onDateSelected: (value) {},
         ),
-        currentDateDecoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          color: AppColors.backGroundColor,
-        ),
-        padding: const EdgeInsets.all(0),
-        initialDate: DateTime.now(),
-        maxDate: DateTime(2026, 4, 19),
-        minDate: DateTime.now(),
-        onDateSelected: (value) {},
       ),
     );
   }

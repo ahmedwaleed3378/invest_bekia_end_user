@@ -121,7 +121,7 @@ class _CustomMainWidgetForAddNewAddressState
                     ],
                   ),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: 25),
                   CustomBigElevatedButtomWithTitle(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -133,7 +133,7 @@ class _CustomMainWidgetForAddNewAddressState
                     },
                     title: 'حفظ العنوان',
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                 ],
               ),
             ),

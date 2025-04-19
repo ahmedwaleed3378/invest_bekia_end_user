@@ -32,7 +32,7 @@ class _ScrapTypeGridViewState extends State<ScrapTypeGridView> {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        int crossAxisCount = constraints.maxWidth > 600 ? 4 : 3;
+        int crossAxisCount = constraints.maxWidth > 600 ? 5 : 4;
 
         return GridView.builder(
           padding: const EdgeInsets.all(0),
@@ -43,7 +43,7 @@ class _ScrapTypeGridViewState extends State<ScrapTypeGridView> {
             crossAxisCount: crossAxisCount,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
-            childAspectRatio: 0.8,
+            childAspectRatio: constraints.maxWidth > 600 ? 0.8 : 0.8,
           ),
           itemBuilder: (context, index) {
             final item = scrapTypes[index];
@@ -79,13 +79,13 @@ class _ScrapTypeGridViewState extends State<ScrapTypeGridView> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(item.image, width: 60, height: 70),
+                    Image.asset(item.image, width: 50, height: 60),
                     const SizedBox(height: 10),
                     FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
                         item.title,
-                        style: TextStyles.font18Regular(context).copyWith(
+                        style: TextStyles.font14Regular(context).copyWith(
                           color: isSelected ? Colors.white : Colors.black,
                         ),
                         textAlign: TextAlign.center,

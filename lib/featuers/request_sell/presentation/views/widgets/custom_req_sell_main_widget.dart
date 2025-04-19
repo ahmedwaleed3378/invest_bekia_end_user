@@ -39,18 +39,21 @@ class CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
         ),
         child: Container(
           color: AppColors.backGroundColor,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 10),
-                Text(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
                   'اعمل طلب جديد لبيع خُردتك',
                   style: TextStyles.font20SemiBold(context),
                 ),
-                const SizedBox(height: 15),
-                Row(
+              ),
+              const SizedBox(height: 15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
                   children: [
                     Expanded(
                       child: AnimatedContainer(
@@ -80,15 +83,15 @@ class CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
-                IndexedStack(
-                  index: currentStep,
-                  children: const [
-                    StageOneInRequsetSell(),
-                    StageTwoInRequestSell(),
-                  ],
-                ),
-                CustomBigElevatedButtomWithTitle(
+              ),
+              const SizedBox(height: 20),
+              currentStep == 0
+                  ? const StageOneInRequsetSell()
+                  : const StageTwoInRequestSell(),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+
+                child: CustomBigElevatedButtomWithTitle(
                   onPressed: () {
                     setState(() {
                       currentStep = currentStep == 0 ? 1 : 2;
@@ -104,8 +107,9 @@ class CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
                   },
                   title: currentStep == 1 ? 'أكد الطلب وابعته' : 'يلا نكمل',
                 ),
-              ],
-            ),
+              ),
+              SizedBox(height: 30),
+            ],
           ),
         ),
       ),

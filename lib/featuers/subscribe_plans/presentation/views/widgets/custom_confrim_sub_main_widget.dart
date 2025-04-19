@@ -33,11 +33,12 @@ class _CustomConfirmSubMainWidgetState
                 CustomPlanDetaislForConfirm(),
                 SizedBox(height: 20),
                 CustomPersonalConfirmForSub(),
-                SizedBox(height: 10),
+                SizedBox(height: 25),
                 CustomBigElevatedButtomWithTitle(
                   onPressed: () {},
                   title: 'تأكيد الاشتراك',
                 ),
+                SizedBox(height: 40),
               ],
             ),
           ),
