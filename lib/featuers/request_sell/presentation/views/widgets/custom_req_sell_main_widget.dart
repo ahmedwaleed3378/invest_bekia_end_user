@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
-
 import 'package:invest_bekia/featuers/request_sell/presentation/views/widgets/stage_one_in_requst_sell.dart';
 
 class CustomReqSellMainWidget extends StatefulWidget {
@@ -11,11 +10,20 @@ class CustomReqSellMainWidget extends StatefulWidget {
 
   @override
   State<CustomReqSellMainWidget> createState() =>
-      _CustomReqSellMainWidgetState();
+      CustomReqSellMainWidgetState();
 }
 
-class _CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
+class CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
   int currentStep = 0;
+
+  int get getCurrentStep => currentStep;
+
+  void goToPreviousStep() {
+    setState(() {
+      currentStep = 0;
+      widget.onChangedStage(currentStep);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +50,9 @@ class _CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
                 Row(
                   children: [
                     Expanded(
-                      child: Container(
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.fastOutSlowIn,
                         height: 7,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
@@ -52,13 +62,15 @@ class _CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
                     ),
                     const SizedBox(width: 8),
                     Expanded(
-                      child: Container(
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.fastOutSlowIn,
                         height: 7,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           color:
                               currentStep == 0
-                                  ? Color(0xffE2F0EC)
+                                  ? const Color(0xffE2F0EC)
                                   : AppColors.primaryColorOneColor,
                         ),
                       ),
@@ -66,8 +78,6 @@ class _CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
                   ],
                 ),
                 const SizedBox(height: 20),
-
-                /// ✅ IndexedStack بدلاً من PageView
                 IndexedStack(
                   index: currentStep,
                   children: const [
@@ -78,9 +88,7 @@ class _CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
                 CustomBigElevatedButtomWithTitle(
                   onPressed: () {
                     setState(() {
-                      // غير المرحلة أولاً
                       currentStep = currentStep == 0 ? 1 : 0;
-                      // ثم بلغ الparent بالمرحلة الجديدة
                       widget.onChangedStage(currentStep);
                     });
                   },
