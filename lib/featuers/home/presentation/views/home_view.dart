@@ -6,7 +6,7 @@ import 'package:iconly/iconly.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
-import 'package:invest_bekia/featuers/auth/presentation/views/widgets/login_view_body.dart';
+import 'package:invest_bekia/featuers/home/presentation/views/widgets/home_view_body.dart';
 import 'package:invest_bekia/featuers/orders/presentation/views/orders_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/main_settings_view.dart';
 import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/plans_view.dart';
@@ -21,13 +21,14 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   late final PageController _pageController;
 
-  int _selectedIndex = 3;
+  int _selectedIndex = 0;
 
   final List<_NavItem> _items = [
-    _NavItem('حسابي', Assets.imagesPerson, Assets.imagesPersonFill),
-    _NavItem('طلباتي', Assets.imagesBox, Assets.imagesBoxFill),
-    _NavItem('الباقات', Assets.imagesCrown, Assets.imagesCrownFill),
     _NavItem('الرئيسية', Assets.imagesHome, Assets.imagesHomeFill),
+    _NavItem('الباقات', Assets.imagesCrown, Assets.imagesCrownFill),
+    _NavItem('طلباتي', Assets.imagesBox, Assets.imagesBoxFill),
+
+    _NavItem('حسابي', Assets.imagesPerson, Assets.imagesPersonFill),
   ];
   @override
   void initState() {
@@ -48,10 +49,10 @@ class _HomeViewState extends State<HomeView> {
         physics: NeverScrollableScrollPhysics(),
         controller: _pageController,
         children: [
-          MainSettingsView(),
-          OrdersView(),
+          HomeViewBody(),
           PlansView(),
-          LoginViewBody(),
+          OrdersView(),
+          MainSettingsView(),
         ],
       ),
       backgroundColor: AppColors.backGroundColor,
@@ -68,7 +69,7 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       bottomNavigationBar: Directionality(
-        textDirection: TextDirection.ltr,
+        textDirection: TextDirection.rtl,
         child: Container(
           height: 75, // Custom height for enough space
           decoration: BoxDecoration(

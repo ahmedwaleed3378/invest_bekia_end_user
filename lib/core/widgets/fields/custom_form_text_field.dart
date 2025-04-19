@@ -51,6 +51,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
           ),
           child: TextFormField(
+            enabled: true,
+
             maxLines: widget.maxLines,
             controller: widget.textEditingController,
             keyboardType: widget.textInputType,
@@ -79,6 +81,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ).copyWith(letterSpacing: widget.isPassword ? 8 : 0)
                     : TextStyles.font20SemiBold(context).copyWith(),
             decoration: InputDecoration(
+              disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(12),
+                borderSide: BorderSide(color: Color(0xffECECEC), width: 1),
+              ),
               contentPadding: EdgeInsets.all(14),
               suffixIcon:
                   widget.isPassword

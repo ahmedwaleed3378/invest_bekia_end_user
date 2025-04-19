@@ -74,6 +74,12 @@ class CustomContainerWithTextAndBtmInSettings extends StatelessWidget {
           left: 20,
           child: SvgPicture.asset(Assets.imagesRecycleBg, width: 150),
         ),
+
+        Positioned(
+          left: 10,
+          bottom: 0,
+          child: Image.asset(Assets.imagesBigMoney, width: 180),
+        ),
       ],
     );
   }
