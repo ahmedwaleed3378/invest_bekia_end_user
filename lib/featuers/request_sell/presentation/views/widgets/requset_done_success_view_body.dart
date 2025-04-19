@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart' as g;
 import 'package:invest_bekia/featuers/home/presentation/views/home_view.dart';
 import 'package:invest_bekia/featuers/request_sell/presentation/views/widgets/custom_app_bar_for_request_sell.dart';
 import 'package:invest_bekia/featuers/request_sell/presentation/views/widgets/custom_main_requset_success_widget.dart';
@@ -17,10 +16,14 @@ class RequsetDoneSuccessViewBody extends StatelessWidget {
           haveBackBtm: true,
           isExit: true,
           onPress: () {
-            g.Get.to(
-              () => const HomeView(),
-              transition: g.Transition.leftToRight,
-              duration: const Duration(milliseconds: 400),
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const HomeView();
+                },
+              ),
+              (route) => false,
             );
           },
         ),
