@@ -12,7 +12,7 @@ class OrdersView extends StatelessWidget {
       physics: ClampingScrollPhysics(),
       slivers: [
         CustomSliverAppBarWithTitle(title: 'طلباتى', haveBackBtm: false),
-        SliverToBoxAdapter(child: CustomOrdersMainWidget()),
+        CustomOrdersMainWidget(),
       ],
     );
   }

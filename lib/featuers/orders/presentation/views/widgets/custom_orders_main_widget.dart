@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/featuers/orders/data/model/order_model.dart';
+import 'package:invest_bekia/featuers/orders/presentation/views/widgets/column_of_no_orders.dart';
 import 'package:invest_bekia/featuers/orders/presentation/views/widgets/custom_container_of_order.dart';
 import 'package:invest_bekia/featuers/orders/presentation/views/widgets/row_of_order_status.dart';
 
@@ -43,33 +44,41 @@ class CustomOrdersMainWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.primaryColorOneColor,
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(16),
-          topRight: Radius.circular(16),
-        ),
-        child: Container(
-          color: AppColors.backGroundColor,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const RowOfOrdersStatus(),
-                const SizedBox(height: 20),
-                ...List.generate(
-                  orders.length,
-                  (index) => Column(
-                    children: [
-                      CustomContainerOfOrder(orderModel: orders[index]),
-                      const SizedBox(height: 20),
-                    ],
+    if (orders.isEmpty) {
+      return const SliverFillRemaining(
+        hasScrollBody: false,
+        child: ColumnOfNoOrders(),
+      );
+    }
+    return SliverToBoxAdapter(
+      child: Container(
+        color: AppColors.primaryColorOneColor,
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(16),
+            topRight: Radius.circular(16),
+          ),
+          child: Container(
+            color: AppColors.backGroundColor,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const RowOfOrdersStatus(),
+                  const SizedBox(height: 20),
+                  ...List.generate(
+                    orders.length,
+                    (index) => Column(
+                      children: [
+                        CustomContainerOfOrder(orderModel: orders[index]),
+                        const SizedBox(height: 20),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 20),
-              ],
+                  SizedBox(height: 20),
+                ],
+              ),
             ),
           ),
         ),
