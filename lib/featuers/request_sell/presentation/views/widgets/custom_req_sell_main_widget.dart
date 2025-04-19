@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
+import 'package:invest_bekia/featuers/request_sell/presentation/views/requset_done_success_view.dart';
 import 'package:invest_bekia/featuers/request_sell/presentation/views/widgets/stage_one_in_requst_sell.dart';
+import 'package:invest_bekia/featuers/request_sell/presentation/views/widgets/stage_two_in_request_sell.dart';
 
 class CustomReqSellMainWidget extends StatefulWidget {
   const CustomReqSellMainWidget({super.key, required this.onChangedStage});
@@ -82,15 +85,22 @@ class CustomReqSellMainWidgetState extends State<CustomReqSellMainWidget> {
                   index: currentStep,
                   children: const [
                     StageOneInRequsetSell(),
-                    StageOneInRequsetSell(),
+                    StageTwoInRequestSell(),
                   ],
                 ),
                 CustomBigElevatedButtomWithTitle(
                   onPressed: () {
                     setState(() {
-                      currentStep = currentStep == 0 ? 1 : 0;
+                      currentStep = currentStep == 0 ? 1 : 2;
                       widget.onChangedStage(currentStep);
                     });
+                    if (currentStep == 2) {
+                      g.Get.off(
+                        () => const RequsetDoneSuccessView(),
+                        transition: g.Transition.leftToRight,
+                        duration: const Duration(milliseconds: 400),
+                      );
+                    }
                   },
                   title: currentStep == 1 ? 'أكد الطلب وابعته' : 'يلا نكمل',
                 ),

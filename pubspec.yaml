@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.8
+  date_picker_plus: ^4.2.0
   device_preview: ^1.2.0
   flutter:
     sdk: flutter

@@ -23,7 +23,7 @@ class _RequestSellViewBodyState extends State<RequestSellViewBody> {
         CustomAppBarForRequestSell(
           title: 'عايز تكسب؟ يلا نبدأ!',
           haveBackBtm: true,
-          isExit: currentIndex != 0,
+          isExit: currentIndex != 1,
           onPress: () {
             final currentStep =
                 _customReqSellKey.currentState?.getCurrentStep ?? 0;

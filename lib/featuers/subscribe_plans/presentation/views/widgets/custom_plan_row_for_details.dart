@@ -18,7 +18,7 @@ class CustomPlanRowForDetails extends StatelessWidget {
     return Row(
       children: [
         CircleAvatar(
-          radius: 25,
+          radius: 20,
           backgroundColor: Color(0xffE8E8E8),
           child: SvgPicture.asset(image, width: 26),
         ),
@@ -28,7 +28,7 @@ class CustomPlanRowForDetails extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyles.font18SemiBold(
+              style: TextStyles.font14SemiBold(
                 context,
               ).copyWith(color: AppColors.primaryColorOneColor),
             ),

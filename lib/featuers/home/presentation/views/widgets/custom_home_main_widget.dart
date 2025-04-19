@@ -37,6 +37,7 @@ class CustomHomeMainWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 CustomGoalContainer(),
+                SizedBox(height: 20),
               ],
             ),
           ),
