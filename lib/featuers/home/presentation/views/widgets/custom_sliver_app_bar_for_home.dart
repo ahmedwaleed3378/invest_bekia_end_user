@@ -40,46 +40,48 @@ class _CustomSliverAppBarForHomeState extends State<CustomSliverAppBarForHome> {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      expandedHeight: 230, // Increased height for more design space
-      leadingWidth: 70,
+      floating: false,
+      snap: false,
+      expandedHeight: 230,
       backgroundColor: AppColors.primaryColorOneColor,
-      flexibleSpace: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
-        ), // Add horizontal and vertical padding
-        child: SafeArea(
-          child: Column(
-            children: [
-              CustomWelcomeUserHeaderWithNotifcation(
-                name: widget.name,
-                notificationCount: 3,
-                onTap: () {
-                  g.Get.to(
-                    () => const NotificationView(),
-                    transition: g.Transition.leftToRight,
-                    duration: const Duration(milliseconds: 400),
-                  );
-                },
-              ),
-              SizedBox(height: 20),
-              Row(
-                children: [
-                  Spacer(),
-                  CustomHeaderInfoContainer(
-                    mainAppBarItemModel: mainAppBarItemModels[0],
-                  ),
-                  Spacer(),
-                  CustomHeaderInfoContainer(
-                    mainAppBarItemModel: mainAppBarItemModels[1],
-                  ),
-                  Spacer(),
-                  CustomHeaderInfoContainer(
-                    mainAppBarItemModel: mainAppBarItemModels[2],
-                  ),
-                  Spacer(),
-                ],
-              ),
-            ],
+      flexibleSpace: FlexibleSpaceBar(
+        background: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 8),
+                CustomWelcomeUserHeaderWithNotifcation(
+                  name: widget.name,
+                  notificationCount: 3,
+                  onTap: () {
+                    g.Get.to(
+                      () => const NotificationView(),
+                      transition: g.Transition.leftToRight,
+                      duration: const Duration(milliseconds: 400),
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children:
+                      mainAppBarItemModels.map((model) {
+                        return Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 4.0,
+                            ),
+                            child: CustomHeaderInfoContainer(
+                              mainAppBarItemModel: model,
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

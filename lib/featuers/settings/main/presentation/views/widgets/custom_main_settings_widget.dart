@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
+import 'package:invest_bekia/featuers/request_sell/presentation/views/request_sell_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_container_settings_with_title_and_btm.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_header_of_main_settings_item_with_name_and_address.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_main_container.dart';
@@ -36,7 +38,13 @@ class CustomMainSettingsWidget extends StatelessWidget {
                 CustomContainerWithTextAndBtmInSettings(
                   title:
                       'من شوية كراكيب لـ سهم في سيوة سكاي! بدل ما ترميها استثمر بيها',
-                  onPressed: () {},
+                  onPressed: () {
+                    g.Get.to(
+                      () => const RequestSellView(),
+                      transition: g.Transition.leftToRight,
+                      duration: const Duration(milliseconds: 400),
+                    );
+                  },
                 ),
                 SizedBox(height: 20),
                 CustomSettingsMainContainer(),

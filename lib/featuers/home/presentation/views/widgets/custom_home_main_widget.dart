@@ -4,6 +4,7 @@ import 'package:invest_bekia/core/utils/app_colors.dart';
 
 import 'package:invest_bekia/featuers/home/presentation/views/widgets/custom_goal_container.dart';
 import 'package:invest_bekia/featuers/home/presentation/views/widgets/custom_note_btm_to_collect_scrap.dart';
+import 'package:invest_bekia/featuers/home/presentation/views/widgets/custom_subscribe_home_plan.dart';
 import 'package:invest_bekia/featuers/request_sell/presentation/views/request_sell_view.dart';
 
 class CustomHomeMainWidget extends StatelessWidget {
@@ -26,6 +27,8 @@ class CustomHomeMainWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 10),
+                CustomSubscribeHomePlan(),
+                SizedBox(height: 10),
                 CustomNoteBtmToCollectScrap(
                   onPressed: () {
                     g.Get.to(
@@ -37,7 +40,7 @@ class CustomHomeMainWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 CustomGoalContainer(),
-                SizedBox(height: 20),
+                SizedBox(height: 30),
               ],
             ),
           ),
