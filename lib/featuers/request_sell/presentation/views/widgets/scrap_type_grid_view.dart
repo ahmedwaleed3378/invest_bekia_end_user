@@ -28,66 +28,74 @@ class _ScrapTypeGridViewState extends State<ScrapTypeGridView> {
   ];
 
   Set<int> selectedIndices = {};
-
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(0),
-      itemCount: scrapTypes.length,
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-        childAspectRatio: 0.8,
-      ),
-      itemBuilder: (context, index) {
-        final item = scrapTypes[index];
-        final isSelected = selectedIndices.contains(index);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        int crossAxisCount = constraints.maxWidth > 600 ? 4 : 3;
 
-        return GestureDetector(
-          onTap: () {
-            setState(() {
-              if (isSelected) {
-                selectedIndices.remove(index);
-              } else {
-                selectedIndices.add(index);
-              }
-            });
-          },
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.fastOutSlowIn,
-            decoration: BoxDecoration(
-              color: isSelected ? AppColors.primaryColorOneColor : Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color:
-                    isSelected
-                        ? AppColors.primaryColorOneColor
-                        : const Color(0xffECECEC),
-                width: 1,
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(item.image, width: 60, height: 70),
-                const SizedBox(height: 10),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    item.title,
-                    style: TextStyles.font18Regular(
-                      context,
-                    ).copyWith(color: isSelected ? Colors.white : Colors.black),
-                    textAlign: TextAlign.center,
+        return GridView.builder(
+          padding: const EdgeInsets.all(0),
+          itemCount: scrapTypes.length,
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxisCount,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 0.8,
+          ),
+          itemBuilder: (context, index) {
+            final item = scrapTypes[index];
+            final isSelected = selectedIndices.contains(index);
+
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  if (isSelected) {
+                    selectedIndices.remove(index);
+                  } else {
+                    selectedIndices.add(index);
+                  }
+                });
+              },
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.fastOutSlowIn,
+                decoration: BoxDecoration(
+                  color:
+                      isSelected
+                          ? AppColors.primaryColorOneColor
+                          : Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color:
+                        isSelected
+                            ? AppColors.primaryColorOneColor
+                            : const Color(0xffECECEC),
+                    width: 1,
                   ),
                 ),
-              ],
-            ),
-          ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(item.image, width: 60, height: 70),
+                    const SizedBox(height: 10),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        item.title,
+                        style: TextStyles.font18Regular(context).copyWith(
+                          color: isSelected ? Colors.white : Colors.black,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
         );
       },
     );
