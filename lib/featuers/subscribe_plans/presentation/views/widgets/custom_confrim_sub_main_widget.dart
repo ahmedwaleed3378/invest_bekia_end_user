@@ -3,6 +3,7 @@ import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/widgets/custom_personal_confirm_for_sub.dart';
 import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/widgets/custom_plan_confirm_for_sub.dart';
+import 'package:invest_bekia/featuers/subscribe_plans/presentation/views/widgets/custom_sub_for_plan_success_btm_sheet.dart';
 
 class CustomConfrimSubMainWidget extends StatefulWidget {
   const CustomConfrimSubMainWidget({super.key});
@@ -35,7 +36,23 @@ class _CustomConfirmSubMainWidgetState
                 CustomPersonalConfirmForSub(),
                 SizedBox(height: 25),
                 CustomBigElevatedButtomWithTitle(
-                  onPressed: () {},
+                  onPressed: () {
+                    showModalBottomSheet(
+                      backgroundColor: Color(0xffffffff),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
+                      ),
+                      showDragHandle: true,
+
+                      context: context,
+                      builder: (context) {
+                        return CustomSubForPlanSuccessBtmSheet();
+                      },
+                    );
+                  },
                   title: 'تأكيد الاشتراك',
                 ),
                 SizedBox(height: 40),
