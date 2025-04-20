@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart' as g;
 import 'package:iconly/iconly.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/featuers/orders/presentation/views/widgets/column_of_order_details.dart';
+import 'package:invest_bekia/featuers/wallet/presentation/views/wallet_view.dart';
 
 class CustomSubscribeHomePlan extends StatelessWidget {
   const CustomSubscribeHomePlan({super.key});
@@ -96,7 +98,13 @@ class CustomSubscribeHomePlan extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  g.Get.to(
+                    () => const WalletView(),
+                    transition: g.Transition.fade,
+                    duration: const Duration(milliseconds: 400),
+                  );
+                },
                 child: Row(
                   children: [
                     Icon(IconlyLight.arrow_down, color: Colors.white),

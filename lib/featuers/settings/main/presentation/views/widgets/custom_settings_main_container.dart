@@ -6,6 +6,7 @@ import 'package:invest_bekia/featuers/settings/account_settings/presentation/vie
 import 'package:invest_bekia/featuers/settings/address/presentation/views/address_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_modal_btm_for_logout.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_item.dart';
+import 'package:invest_bekia/featuers/wallet/presentation/views/wallet_view.dart';
 
 class CustomSettingsMainContainer extends StatelessWidget {
   const CustomSettingsMainContainer({super.key});
@@ -57,7 +58,13 @@ class CustomSettingsMainContainer extends StatelessWidget {
           ),
           Divider(color: Color(0xffE5E5E5)),
           CustomSettingsItem(
-            onPressed: () {},
+            onPressed: () {
+              g.Get.to(
+                () => const WalletView(),
+                transition: g.Transition.leftToRight,
+                duration: const Duration(milliseconds: 400),
+              );
+            },
             title: "المحفظة",
             icon: Assets.imagesWallet,
           ),
