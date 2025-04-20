@@ -125,7 +125,7 @@ class CustomSubscribeHomePlan extends StatelessWidget {
               color: Color(0xffE6F1F9),
             ),
             child: Text(
-              'دخل شهرى ثابت مدى 15 سنة‘ استثمار ذكى وامن',
+              'دخل شهرى ثابت لمدة 10 سنين استثمار ذكى وامن',
               style: TextStyles.font14Medium(context),
               textAlign: TextAlign.center,
             ),

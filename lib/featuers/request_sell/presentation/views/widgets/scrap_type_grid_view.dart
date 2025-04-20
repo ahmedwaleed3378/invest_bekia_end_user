@@ -13,18 +13,18 @@ class ScrapTypeGridView extends StatefulWidget {
 
 class _ScrapTypeGridViewState extends State<ScrapTypeGridView> {
   List<ScrapType> scrapTypes = [
-    ScrapType(title: 'ورقيات', image: Assets.imagesPaper),
-    ScrapType(title: 'بلاستيك', image: Assets.imagesPlastic),
-    ScrapType(title: 'زيت قلي', image: Assets.imagesOil),
     ScrapType(title: 'كرتون', image: Assets.imagesCartoon),
-    ScrapType(title: 'أنتيكات', image: Assets.imagesRobapecia),
-    ScrapType(title: 'أدوات منزلية', image: Assets.imagesHomeDevices),
-    ScrapType(title: 'معادن', image: Assets.imagesMetail),
+    ScrapType(title: 'زيت قلي', image: Assets.imagesOil),
+    ScrapType(title: 'بلاستيك', image: Assets.imagesPlastic),
+    ScrapType(title: 'ورقيات', image: Assets.imagesPaper),
     ScrapType(title: 'الكترونيات', image: Assets.imagesElectronics),
-    ScrapType(title: 'حاجات تانية', image: Assets.imagesBasket),
-    ScrapType(title: 'لعب أطفال', image: Assets.imagesToys),
-    ScrapType(title: 'أدوات رياضية', image: Assets.imagesGym),
+    ScrapType(title: 'معادن', image: Assets.imagesMetail),
+    ScrapType(title: 'أدوات منزلية', image: Assets.imagesHomeDevices),
+    ScrapType(title: 'أنتيكات', image: Assets.imagesRobapecia),
     ScrapType(title: 'قطع غيار', image: Assets.imagesScrap),
+    ScrapType(title: 'أدوات رياضية', image: Assets.imagesGym),
+    ScrapType(title: 'لعب أطفال', image: Assets.imagesToys),
+    ScrapType(title: 'حاجات تانية', image: Assets.imagesBasket),
   ];
 
   Set<int> selectedIndices = {};

@@ -37,7 +37,7 @@ class CustomMainSettingsWidget extends StatelessWidget {
                 SizedBox(height: 20),
                 CustomContainerWithTextAndBtmInSettings(
                   title:
-                      'من شوية كراكيب لـ سهم في سيوة سكاي! بدل ما ترميها استثمر بيها',
+                      'من شوية كراكيب لـ سهم في سيوة اسكاي!بدل ما ترميها استثمر بيها',
                   onPressed: () {
                     g.Get.to(
                       () => const RequestSellView(),
