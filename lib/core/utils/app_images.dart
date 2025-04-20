@@ -10,6 +10,10 @@ class Assets {
   /// assets/images/all_scrap_white.svg
   static const String imagesAllScrapWhite = "assets/images/all_scrap_white.svg";
 
+  /// Assets for imagesAntiques
+  /// assets/images/Antiques.svg
+  static const String imagesAntiques = "assets/images/Antiques.svg";
+
   /// Assets for imagesAntiquesWhite
   /// assets/images/Antiques_white.svg
   static const String imagesAntiquesWhite = "assets/images/Antiques_white.svg";
@@ -233,6 +237,10 @@ class Assets {
   /// Assets for imagesPlasticScrapPrice
   /// assets/images/plastic_scrap_price.svg
   static const String imagesPlasticScrapPrice = "assets/images/plastic_scrap_price.svg";
+
+  /// Assets for imagesPlasticWhite
+  /// assets/images/plastic_white.svg
+  static const String imagesPlasticWhite = "assets/images/plastic_white.svg";
 
   /// Assets for imagesQr
   /// assets/images/qr.png

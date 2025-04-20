@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
+import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 
 // ignore: must_be_immutable
@@ -16,14 +18,17 @@ class CustomTextField extends StatefulWidget {
     this.textEditingController,
     this.maxLines = 1,
     this.isEnabled = true,
+    this.haveTitle = true,
+    this.onChanged,
+    this.isSearch = false,
   });
   final String mainTitle, hintTitle;
   final TextInputType textInputType;
   final TextEditingController? textEditingController;
   final int maxLines;
-
+  final void Function(String)? onChanged;
   bool obscureText;
-  final bool isPassword, isLogin, isPhone, isEnabled;
+  final bool isPassword, isLogin, isPhone, isEnabled, haveTitle, isSearch;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -35,13 +40,19 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.mainTitle,
-          style: TextStyles.font20Medium(
-            context,
-          ).copyWith(color: Color(0xff6B6B6B)),
+        Visibility(
+          visible: widget.haveTitle,
+          child: Text(
+            widget.mainTitle,
+            style: TextStyles.font20Medium(
+              context,
+            ).copyWith(color: Color(0xff6B6B6B)),
+          ),
         ),
-        SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
+        Visibility(
+          visible: widget.haveTitle,
+          child: SizedBox(height: MediaQuery.sizeOf(context).height * 0.01),
+        ),
         Theme(
           data: ThemeData(
             textSelectionTheme: TextSelectionThemeData(
@@ -52,6 +63,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
           ),
           child: TextFormField(
+            onChanged: widget.onChanged,
             enabled: widget.isEnabled,
 
             maxLines: widget.maxLines,
@@ -82,6 +94,17 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ).copyWith(letterSpacing: widget.isPassword ? 8 : 0)
                     : TextStyles.font20SemiBold(context).copyWith(),
             decoration: InputDecoration(
+              prefixIconConstraints: BoxConstraints(
+                minWidth: 50,
+                minHeight: 50,
+              ),
+              prefixIcon:
+                  widget.isSearch
+                      ? Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 14),
+                        child: SvgPicture.asset(Assets.imagesSearch),
+                      )
+                      : null,
               disabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(color: Color(0xffECECEC), width: 1),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
+import 'package:invest_bekia/featuers/scrap_prices/presentation/views/scrap_price_view.dart';
 import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/account_settings_view.dart';
 import 'package:invest_bekia/featuers/settings/address/presentation/views/address_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_modal_btm_for_logout.dart';
@@ -41,6 +42,24 @@ class CustomSettingsMainContainer extends StatelessWidget {
             },
             title: "العناوين",
             icon: Assets.imagesLocation,
+          ),
+          Divider(color: Color(0xffE5E5E5)),
+          CustomSettingsItem(
+            onPressed: () {
+              g.Get.to(
+                () => const ScrapPriceView(),
+                transition: g.Transition.leftToRight,
+                duration: const Duration(milliseconds: 400),
+              );
+            },
+            title: "اسعار الخردة",
+            icon: Assets.imagesScrapPrice,
+          ),
+          Divider(color: Color(0xffE5E5E5)),
+          CustomSettingsItem(
+            onPressed: () {},
+            title: "المحفظة",
+            icon: Assets.imagesWallet,
           ),
           Divider(color: Color(0xffE5E5E5)),
           CustomSettingsItem(

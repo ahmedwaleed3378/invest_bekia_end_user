@@ -49,7 +49,7 @@ class CustomNoteBtmToCollectScrap extends StatelessWidget {
               ),
               child: Text(
                 'ضاعف ارباحك',
-                style: TextStyles.font11Medium(
+                style: TextStyles.font14Medium(
                   context,
                 ).copyWith(color: Colors.white),
               ),
