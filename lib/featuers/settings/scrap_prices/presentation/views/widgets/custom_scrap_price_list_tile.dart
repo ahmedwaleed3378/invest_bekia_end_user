@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
-import 'package:invest_bekia/featuers/scrap_prices/data/model/scrap_price_tile_model.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/data/model/scrap_price_tile_model.dart';
 
 class CustomScrapPriceTile extends StatelessWidget {
   const CustomScrapPriceTile({super.key, required this.scrapPriceTileModel});

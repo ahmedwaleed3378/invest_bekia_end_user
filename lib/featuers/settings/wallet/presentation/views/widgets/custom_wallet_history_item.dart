@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
-import 'package:invest_bekia/featuers/wallet/data/model/wallet_history_model.dart';
+import 'package:invest_bekia/featuers/settings/wallet/data/model/wallet_history_model.dart';
 
 class CustomWalletHistoryItem extends StatelessWidget {
   const CustomWalletHistoryItem({super.key, required this.walletHistoryModel});

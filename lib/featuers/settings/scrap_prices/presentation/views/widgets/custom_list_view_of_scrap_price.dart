@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
-import 'package:invest_bekia/featuers/scrap_prices/data/model/scrap_price_category_model.dart';
-import 'package:invest_bekia/featuers/scrap_prices/presentation/views/widgets/custom_category_of_price_scrap_item.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/data/model/scrap_price_category_model.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/presentation/views/widgets/custom_category_of_price_scrap_item.dart';
 
 class CustomListViewOfScrapPrice extends StatefulWidget {
   const CustomListViewOfScrapPrice({super.key});

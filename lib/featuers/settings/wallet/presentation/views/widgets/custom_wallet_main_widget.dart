@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 
-import 'package:invest_bekia/featuers/wallet/data/model/wallet_history_model.dart';
-import 'package:invest_bekia/featuers/wallet/presentation/views/widgets/custom_wallet_history_item.dart';
-import 'package:invest_bekia/featuers/wallet/presentation/views/widgets/custom_wallet_main_container.dart';
+import 'package:invest_bekia/featuers/settings/wallet/data/model/wallet_history_model.dart';
+import 'package:invest_bekia/featuers/settings/wallet/presentation/views/widgets/custom_wallet_history_item.dart';
+import 'package:invest_bekia/featuers/settings/wallet/presentation/views/widgets/custom_wallet_main_container.dart';
 
 class CustomWalletMainWidget extends StatelessWidget {
   const CustomWalletMainWidget({super.key});

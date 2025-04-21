@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
-import 'package:invest_bekia/featuers/scrap_prices/presentation/views/scrap_price_view.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/presentation/views/scrap_price_view.dart';
 import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/account_settings_view.dart';
 import 'package:invest_bekia/featuers/settings/address/presentation/views/address_view.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_modal_btm_for_logout.dart';
 import 'package:invest_bekia/featuers/settings/main/presentation/views/widgets/custom_settings_item.dart';
-import 'package:invest_bekia/featuers/wallet/presentation/views/wallet_view.dart';
+import 'package:invest_bekia/featuers/settings/wallet/presentation/views/wallet_view.dart';
 
 class CustomSettingsMainContainer extends StatelessWidget {
   const CustomSettingsMainContainer({super.key});

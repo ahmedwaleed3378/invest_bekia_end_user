@@ -5,7 +5,7 @@ import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
-import 'package:invest_bekia/featuers/wallet/presentation/views/widgets/success_wallet_transication.dart';
+import 'package:invest_bekia/featuers/settings/wallet/presentation/views/widgets/success_wallet_transication.dart';
 
 class CustomWalletContainer extends StatefulWidget {
   const CustomWalletContainer({super.key});

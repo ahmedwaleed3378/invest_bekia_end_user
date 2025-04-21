@@ -5,8 +5,8 @@ import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
 import 'package:invest_bekia/featuers/home/presentation/views/widgets/custom_note_btm_to_collect_scrap.dart';
 import 'package:invest_bekia/featuers/request_sell/presentation/views/request_sell_view.dart';
 
-import 'package:invest_bekia/featuers/scrap_prices/presentation/views/widgets/custom_list_view_of_scrap_price.dart';
-import 'package:invest_bekia/featuers/scrap_prices/presentation/views/widgets/custom_scrap_prices_container.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/presentation/views/widgets/custom_list_view_of_scrap_price.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/presentation/views/widgets/custom_scrap_prices_container.dart';
 
 class CustomScrapPriceMainWidget extends StatelessWidget {
   const CustomScrapPriceMainWidget({super.key});

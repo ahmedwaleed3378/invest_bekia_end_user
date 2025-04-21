@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:invest_bekia/featuers/scrap_prices/data/model/scrap_price_tile_model.dart';
-import 'package:invest_bekia/featuers/scrap_prices/presentation/views/widgets/custom_scrap_price_list_tile.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/data/model/scrap_price_tile_model.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/presentation/views/widgets/custom_scrap_price_list_tile.dart';
 
 class CustomPricesOfScrapContainer extends StatelessWidget {
   CustomPricesOfScrapContainer({super.key});

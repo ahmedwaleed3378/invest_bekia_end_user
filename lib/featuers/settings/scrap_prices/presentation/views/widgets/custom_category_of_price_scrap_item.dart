@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
-import 'package:invest_bekia/featuers/scrap_prices/data/model/scrap_price_category_model.dart';
+import 'package:invest_bekia/featuers/settings/scrap_prices/data/model/scrap_price_category_model.dart';
 
 class CustomCategoryOfScrapPriceItem extends StatelessWidget {
   const CustomCategoryOfScrapPriceItem({
