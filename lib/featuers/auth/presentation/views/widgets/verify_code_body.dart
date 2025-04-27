@@ -130,10 +130,14 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CustomBigElevatedButtomWithTitle(
               onPressed: () {
-                g.Get.off(
-                  () => const HomeView(),
-                  transition: g.Transition.fade,
-                  duration: const Duration(milliseconds: 400),
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const HomeView();
+                    },
+                  ),
+                  (route) => false,
                 );
               },
               title: 'أكد الكود',
