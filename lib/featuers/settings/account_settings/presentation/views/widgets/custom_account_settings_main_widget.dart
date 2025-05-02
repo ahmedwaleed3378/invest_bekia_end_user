@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/widgets/container_of_personal_data.dart';
 import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/widgets/container_of_reset_password.dart';
@@ -15,6 +18,20 @@ class CustomAccountSettingsMainWidget extends StatefulWidget {
 class _CustomAccountSettingsMainWidgetState
     extends State<CustomAccountSettingsMainWidget> {
   bool isExpandedAccoutData = true, isExpandedPasswordReset = false;
+
+  File? imagePath;
+
+  Future<void> _pickImage() async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+
+    if (pickedFile != null) {
+      setState(() {
+        imagePath = File(pickedFile.path);
+      });
+    }
+  }
+
   @override
   @override
   Widget build(BuildContext context) {
@@ -49,7 +66,9 @@ class _CustomAccountSettingsMainWidgetState
                       });
                     },
                     onTapUpdate: () {},
-                    onTapToEditPhoto: () {},
+                    onTapToEditPhoto: () {
+                      _pickImage();
+                    },
                     name: 'مصطفى مبروك',
                     phone: '0123456789',
                     email: 'qHq0I@example.com',
