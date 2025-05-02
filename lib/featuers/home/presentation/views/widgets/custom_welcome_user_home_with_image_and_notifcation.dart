@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/featuers/home/presentation/views/widgets/custom_notifcation_btm.dart';
+import 'package:invest_bekia/featuers/settings/account_settings/presentation/views/account_settings_view.dart';
 
 class CustomWelcomeUserHeaderWithNotifcation extends StatelessWidget {
   const CustomWelcomeUserHeaderWithNotifcation({
@@ -19,9 +21,18 @@ class CustomWelcomeUserHeaderWithNotifcation extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        CircleAvatar(
-          radius: 25,
-          backgroundImage: AssetImage(Assets.imagesAvatar),
+        GestureDetector(
+          onTap: () {
+            g.Get.to(
+              () => const AccountSettingsView(),
+              transition: g.Transition.leftToRight,
+              duration: const Duration(milliseconds: 400),
+            );
+          },
+          child: CircleAvatar(
+            radius: 25,
+            backgroundImage: AssetImage(Assets.imagesAvatar),
+          ),
         ),
         SizedBox(width: 20),
         Column(
