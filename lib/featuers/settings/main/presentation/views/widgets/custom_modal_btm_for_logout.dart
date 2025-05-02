@@ -1,9 +1,13 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart' as g;
+import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/login_view.dart';
 
 class CustomModalBottomSheetForLogout extends StatelessWidget {
   const CustomModalBottomSheetForLogout({super.key});
@@ -54,7 +58,18 @@ class CustomModalBottomSheetForLogout extends StatelessWidget {
                       isCancle: true,
                       title: "تسجيل الخروج",
                       isDisabled: false,
-                      onPressed: () => g.Get.back(),
+                      onPressed: () async {
+                        await CacheHelper().removeData(key: 'isLogin');
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const LoginView();
+                            },
+                          ),
+                          (route) => false,
+                        );
+                      },
                     ),
                   ),
                 ),

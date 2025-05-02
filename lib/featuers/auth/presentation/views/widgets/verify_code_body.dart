@@ -1,6 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart' as g;
+import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
@@ -129,7 +131,8 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: CustomBigElevatedButtomWithTitle(
-              onPressed: () {
+              onPressed: () async {
+                await CacheHelper().saveData(key: 'isLogin', value: true);
                 Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(

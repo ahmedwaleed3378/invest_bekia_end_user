@@ -3,8 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart' as g;
+import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/widgets/helping_widgets/custom_circle_progress.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/login_view.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/register_view.dart';
+import 'package:invest_bekia/featuers/home/presentation/views/home_view.dart';
 import 'package:invest_bekia/featuers/on_boarding/presentation/views/on_boarding_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -38,12 +42,31 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     _animationController.forward();
 
-    Future.delayed(const Duration(milliseconds: 2500), () {
-      g.Get.off(
-        () => const OnBoardingView(),
-        transition: g.Transition.fade,
-        duration: const Duration(milliseconds: 800),
-      );
+    Future.delayed(const Duration(milliseconds: 2500), () async {
+      var value = await CacheHelper().getData(key: 'onBoardingDone');
+
+      if (value == null) {
+        g.Get.off(
+          () => const OnBoardingView(),
+          transition: g.Transition.fade,
+          duration: const Duration(milliseconds: 800),
+        );
+      } else {
+        var valueOfLogin = await CacheHelper().getData(key: 'isLogin');
+        if (valueOfLogin != null) {
+          g.Get.off(
+            () => const HomeView(),
+            transition: g.Transition.fade,
+            duration: const Duration(milliseconds: 800),
+          );
+        } else {
+          g.Get.off(
+            () => const LoginView(),
+            transition: g.Transition.fade,
+            duration: const Duration(milliseconds: 800),
+          );
+        }
+      }
     });
   }
 

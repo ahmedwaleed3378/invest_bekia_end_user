@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as g;
+import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
@@ -42,7 +43,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 curve: Curves.easeInOut,
               );
             },
-            onTapSkip: () {
+            onTapSkip: () async {
+              await CacheHelper().saveData(key: 'onBoardingDone', value: true);
               g.Get.off(
                 () => const RegisterView(),
                 transition: g.Transition.fade,
@@ -62,7 +64,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 currentIndex = index;
               });
             },
-            physics: const NeverScrollableScrollPhysics(),
+
             controller: pageController,
             children: const [
               CustomOnBoardingItem(
@@ -115,13 +117,18 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: CustomBigElevatedButtomWithTitle(
-            onPressed: () {
+            onPressed: () async {
               if (currentIndex != 2) {
                 pageController.nextPage(
                   duration: const Duration(milliseconds: 500),
                   curve: Curves.easeInOut,
                 );
               } else {
+                await CacheHelper().saveData(
+                  key: 'onBoardingDone',
+                  value: true,
+                );
+
                 g.Get.off(
                   () => const RegisterView(),
                   transition: g.Transition.fade,

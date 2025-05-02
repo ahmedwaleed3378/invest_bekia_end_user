@@ -5,16 +5,19 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/featuers/splash/presentation/views/splash_view.dart';
 import 'package:invest_bekia/generated/l10n.dart';
 
-void main() {
+void main() async {
   runApp(
     DevicePreview(
       enabled: kReleaseMode ? false : true,
       builder: (context) => const InvestBekiaApp(),
     ),
   );
+
+  await CacheHelper().init();
 }
 
 class InvestBekiaApp extends StatelessWidget {

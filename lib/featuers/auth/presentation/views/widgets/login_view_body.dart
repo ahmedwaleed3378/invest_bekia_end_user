@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart' as g;
+import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
@@ -113,9 +114,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               child: Column(
                 children: [
                   CustomBigElevatedButtomWithTitle(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
+
+                        await CacheHelper().saveData(
+                          key: 'isLogin',
+                          value: true,
+                        );
                         g.Get.off(
                           () => const HomeView(),
                           transition: g.Transition.fade,
