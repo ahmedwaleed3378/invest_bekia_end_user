@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
-import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class CustomMainRequsetSuccessWidget extends StatefulWidget {
   const CustomMainRequsetSuccessWidget({super.key});
@@ -35,10 +35,16 @@ class _CustomMainRequsetSuccessWidgetState
                   style: TextStyles.font18SemiBold(context),
                 ),
                 SizedBox(height: 15),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(Assets.imagesQr, width: 200),
+                SizedBox(
+                  width: 200,
+                  height: 200,
+                  child: QrImageView(
+                    data: '1972000',
+                    version: QrVersions.auto,
+                    gapless: false,
+                  ),
                 ),
+
                 SizedBox(height: 15),
                 Text(
                   'ده الكيو آر كود بتاع طلبك',
