@@ -44,7 +44,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
               );
             },
             onTapSkip: () async {
-              await CacheHelper().saveData(key: 'onBoardingDone', value: true);
+              await CacheHelper().saveOnboardingViewed( true);
               g.Get.off(
                 () => const RegisterView(),
                 transition: g.Transition.fade,
@@ -124,9 +124,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   curve: Curves.easeInOut,
                 );
               } else {
-                await CacheHelper().saveData(
-                  key: 'onBoardingDone',
-                  value: true,
+                await CacheHelper().saveOnboardingViewed(
+                true,
                 );
 
                 g.Get.off(

@@ -1,67 +1,72 @@
 // ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
 
+
 class CacheHelper {
-  static late SharedPreferences sharedPreferences;
+  // 1. Private constructor
+  CacheHelper._();
 
-  //! Here The Initialize of cache .
-  init() async {
-    sharedPreferences = await SharedPreferences.getInstance();
+  // 2. The one & only instance
+  static final CacheHelper _instance = CacheHelper._();
+
+  // 3. Factory that always returns the same instance
+  factory CacheHelper() => _instance;
+
+  // 4. Convenient static getter
+  static CacheHelper get to => _instance;
+
+  late final SharedPreferences _prefs;
+
+  /// Call this once at app startup:
+  Future<void> init() async {
+    _prefs = await SharedPreferences.getInstance();
   }
 
-  //! this method to put data in local database using key
+  SharedPreferences get storage => _prefs;
 
-  String? getDataString({required String key}) {
-    return sharedPreferences.getString(key);
-  }
+  Future<void> saveLanguage(String languageCode) =>
+      _prefs.setString("lang", languageCode);
 
-  //! this method to put data in local database using key
+  Future<void> saveToken(String token) => _prefs.setString("token", token);
+  Future<void> saveUserId(int userId) => _prefs.setInt("user_id", userId);
 
-  Future<bool> saveData({required String key, required dynamic value}) async {
-    if (value is bool) {
-      return await sharedPreferences.setBool(key, value);
-    }
-    if (value is String) {
-      return await sharedPreferences.setString(key, value);
-    }
+  Future<void> saveFcmToken(String fcmToken) =>
+      _prefs.setString("fcmToken", fcmToken);
 
-    if (value is int) {
-      return await sharedPreferences.setInt(key, value);
-    } else {
-      return await sharedPreferences.setDouble(key, value);
-    }
-  }
+  Future<void> savePhone(String phone) => _prefs.setString("phone", phone);
 
-  //! this method to get data already saved in local database
+  Future<void> saveIsFirstTime(bool isFirstTime) =>
+      _prefs.setBool("isFirstTime", isFirstTime);
 
-  dynamic getData({required String key}) {
-    return sharedPreferences.get(key);
-  }
+  Future<void> saveIsNotificationsAllowed(bool isAllowed) =>
+      _prefs.setBool("isNotificationsAllowed", isAllowed);
 
-  //! remove data using specific key
+  Future<void> saveOnboardingViewed(bool viewed) =>
+      _prefs.setBool("onboardingViewed", viewed);
 
-  Future<bool> removeData({required String key}) async {
-    return await sharedPreferences.remove(key);
-  }
+  String get language => _prefs.getString("lang") ?? "ar";
 
-  //! this method to check if local database contains {key}
-  Future<bool> containsKey({required String key}) async {
-    return sharedPreferences.containsKey(key);
-  }
+  String? get token => _prefs.getString("token");
 
-  //! clear all data in the local database
-  Future<bool> clearData() async {
-    return await sharedPreferences.clear();
-  }
+  int? get userID => _prefs.getInt("user_id");
 
-  //! this method to put data in local database using key
-  Future<dynamic> put({required String key, required dynamic value}) async {
-    if (value is String) {
-      return await sharedPreferences.setString(key, value);
-    } else if (value is bool) {
-      return await sharedPreferences.setBool(key, value);
-    } else {
-      return await sharedPreferences.setInt(key, value);
-    }
-  }
+  bool get isLoggedIn => token != null && token!.isNotEmpty;
+
+  String? get phone => _prefs.getString("phone");
+
+  String? get fcmToken => _prefs.getString("fcmToken");
+
+  bool get isFirstTime => _prefs.getBool("isFirstTime") ?? true;
+
+  bool get isNotificationsAllowed =>
+      _prefs.getBool("isNotificationsAllowed") ?? false;
+
+  bool get isOnboardingViewed => _prefs.getBool("onboardingViewed") ?? false;
+
+  bool isLanguageSaved() => _prefs.containsKey("lang");
+
+  bool isTokenSaved() => _prefs.containsKey("token");
+
+  Future<void> clearAll() => _prefs.clear();
 }
+

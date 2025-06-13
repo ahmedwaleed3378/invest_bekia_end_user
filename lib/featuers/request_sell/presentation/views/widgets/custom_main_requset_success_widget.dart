@@ -39,7 +39,7 @@ class _CustomMainRequsetSuccessWidgetState
                   width: 200,
                   height: 200,
                   child: QrImageView(
-                    data: '1972000',
+                    data: '197290',
                     version: QrVersions.auto,
                     gapless: false,
                   ),

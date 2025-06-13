@@ -43,17 +43,17 @@ class _SplashViewBodyState extends State<SplashViewBody>
     _animationController.forward();
 
     Future.delayed(const Duration(milliseconds: 2500), () async {
-      var value = await CacheHelper().getData(key: 'onBoardingDone');
+      var value =  CacheHelper.to.isOnboardingViewed;
 
-      if (value == null) {
+      if (!value) {
         g.Get.off(
           () => const OnBoardingView(),
           transition: g.Transition.fade,
           duration: const Duration(milliseconds: 800),
         );
       } else {
-        var valueOfLogin = await CacheHelper().getData(key: 'isLogin');
-        if (valueOfLogin != null) {
+        var valueOfLogin =  CacheHelper.to.isLoggedIn;
+        if (valueOfLogin ) {
           g.Get.off(
             () => const HomeView(),
             transition: g.Transition.fade,
