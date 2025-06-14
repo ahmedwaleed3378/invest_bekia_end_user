@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-const String baseUrl = 'https://localhost:7010'; // Replace with your actual base URL
+const String baseUrl = 'http://82.197.92.108:5000/api'; // Replace with your actual base URL
 class DioFactory {
   DioFactory._();
 

@@ -1,49 +1,75 @@
-class LoginModel {
-  bool? success;
-  Data? data;
-  String? message;
 
-  LoginModel({this.success, this.data, this.message});
+class LoginResponse {
+    bool? success;
+    String? message;
+    Data? data;
 
-  LoginModel.fromJson(Map<String, dynamic> json) {
-    success = json['success'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
-    message = json['message'];
-  }
+    LoginResponse({this.success, this.message, this.data});
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['success'] = success;
-    if (this.data != null) {
-      data['data'] = this.data!.toJson();
+    LoginResponse.fromJson(Map<String, dynamic> json) {
+        success = json["success"];
+        message = json["message"];
+        data = json["data"] == null ? null : Data.fromJson(json["data"]);
     }
-    data['message'] = message;
-    return data;
-  }
+
+    Map<String, dynamic> toJson() {
+        final Map<String, dynamic> _data = <String, dynamic>{};
+        _data["success"] = success;
+        _data["message"] = message;
+        if(data != null) {
+            _data["data"] = data?.toJson();
+        }
+        return _data;
+    }
 }
 
 class Data {
-  String? token;
-  User? user;
+    String? token;
+    int? userId;
+    String? fullname;
+    String? userName;
+    dynamic email;
+    String? phoneNumber;
+    dynamic profileImage;
+    int? walletBalance;
+    int? reservedCash;
+    int? sharesNumber;
+    int? selledScrapAmount;
 
-  Data({this.token, this.user});
+    Data({this.token, this.userId, this.fullname, this.userName, this.email, this.phoneNumber, this.profileImage, this.walletBalance, this.reservedCash, this.sharesNumber, this.selledScrapAmount});
 
-  Data.fromJson(Map<String, dynamic> json) {
-    token = json['token'];
-    user = json['user'] != null ? User.fromJson(json['user']) : null;
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['token'] = token;
-    if (user != null) {
-      data['user'] = user!.toJson();
+    Data.fromJson(Map<String, dynamic> json) {
+        token = json["token"];
+        userId = json["userId"];
+        fullname = json["fullname"];
+        userName = json["userName"];
+        email = json["email"];
+        phoneNumber = json["phoneNumber"];
+        profileImage = json["profileImage"];
+        walletBalance = json["walletBalance"];
+        reservedCash = json["reservedCash"];
+        sharesNumber = json["sharesNumber"];
+        selledScrapAmount = json["selledScrapAmount"];
     }
-    return data;
-  }
+
+    Map<String, dynamic> toJson() {
+        final Map<String, dynamic> _data = <String, dynamic>{};
+        _data["token"] = token;
+        _data["userId"] = userId;
+        _data["fullname"] = fullname;
+        _data["userName"] = userName;
+        _data["email"] = email;
+        _data["phoneNumber"] = phoneNumber;
+        _data["profileImage"] = profileImage;
+        _data["walletBalance"] = walletBalance;
+        _data["reservedCash"] = reservedCash;
+        _data["sharesNumber"] = sharesNumber;
+        _data["selledScrapAmount"] = selledScrapAmount;
+        return _data;
+    }
 }
 
-class User {
+class UserForLoginResponse {
   int? id;
   String? image;
   String? name;
@@ -52,7 +78,7 @@ class User {
   String? phone;
   String? otp;
 
-  User(
+  UserForLoginResponse(
       {this.id,
         this.image,
         this.name,
@@ -61,10 +87,10 @@ class User {
         this.phone,
         this.otp});
 
-  User.fromJson(Map<String, dynamic> json) {
+  UserForLoginResponse.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     image = json['image'];
-    name = json['name'];
+    name = json['fullname'];
     userName = json['user_name'];
     email = json['email'];
     phone = json['phone'];

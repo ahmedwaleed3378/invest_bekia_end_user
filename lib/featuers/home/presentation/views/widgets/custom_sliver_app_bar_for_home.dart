@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as g;
+import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/featuers/home/data/model/main_app_bar_item_model.dart';
@@ -19,19 +20,19 @@ class CustomSliverAppBarForHome extends StatefulWidget {
 class _CustomSliverAppBarForHomeState extends State<CustomSliverAppBarForHome> {
   List<MainAppBarItemModel> mainAppBarItemModels = [
     MainAppBarItemModel(
-      title: '28000 ج.م',
+      title: '${CacheHelper.to.reservedCach} ج.م',
       subTitle: 'فلوسك',
       image: Assets.imagesYourMoney,
       bgColor: Color(0xffE9F7F1),
     ),
     MainAppBarItemModel(
-      title: '0 سهم',
-      subTitle: 'اسهمك',
+      title: '${CacheHelper.to.walletBalance} ج.م',
+      subTitle: 'أرباحك',
       image: Assets.imagesStock,
       bgColor: Color(0xffE5F1F8),
     ),
     MainAppBarItemModel(
-      title: '220 كيلو',
+      title: '${CacheHelper.to.selledAmount} كيلو',
       subTitle: 'خردة بعتها',
       image: Assets.imagesSoldScrap,
       bgColor: Color(0xffFEF6EB),

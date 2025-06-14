@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_colors.dart';
@@ -6,10 +7,11 @@ import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
+import 'package:invest_bekia/featuers/auth/cubit/login_cubit.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/listeners/login_bloc_listener.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/register_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/reset_password_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
-import 'package:invest_bekia/featuers/home/presentation/views/home_view.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -21,7 +23,8 @@ class LoginViewBody extends StatefulWidget {
 class _LoginViewBodyState extends State<LoginViewBody> {
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
-
+  final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,13 +34,17 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         autovalidateMode: _autovalidateMode,
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
+         SliverToBoxAdapter(
+              child: LoginBlocListener(
+              ),
+            ),    SliverToBoxAdapter(
               child: SafeArea(
                 child: SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.02,
                 ),
               ),
             ),
+           
             SliverToBoxAdapter(
               child: SvgPicture.asset(Assets.imagesSvgLogoBekia, height: 60),
             ),
@@ -60,6 +67,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               child: CustomTextField(
                 textInputType: TextInputType.phone,
                 isPhone: true,
+                textEditingController: _phoneController,
                 isLogin: true,
                 mainTitle: 'رقم الموبايل',
                 hintTitle: 'دخل رقم موبايلك',
@@ -77,6 +85,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 textInputType: TextInputType.text,
                 isPhone: false,
                 isLogin: true,
+                textEditingController: _passwordController,
                 mainTitle: 'كلمة السر',
                 hintTitle: 'دخل كلمة السر',
                 obscureText: true,
@@ -118,11 +127,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         _formKey.currentState!.save();
 
                       
-                        g.Get.off(
-                          () => const HomeView(),
-                          transition: g.Transition.fade,
-                          duration: const Duration(milliseconds: 400),
-                        );
+                        context.read<LoginCubit>().login({
+                          "phoneNumber": _phoneController.text,
+                          "password": _passwordController.text,
+                        });
                       } else {
                         setState(() {
                           _autovalidateMode = AutovalidateMode.always;

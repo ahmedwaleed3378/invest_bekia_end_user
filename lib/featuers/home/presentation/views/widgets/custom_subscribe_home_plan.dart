@@ -37,7 +37,7 @@ class CustomSubscribeHomePlan extends StatelessWidget {
                     SvgPicture.asset(Assets.imagesStarter),
                     SizedBox(width: 10),
                     Text(
-                      'باقة البداية',
+                      'إجمالي الرصيد',
                       style: TextStyles.font18SemiBold(
                         context,
                       ).copyWith(color: Colors.white),
@@ -49,23 +49,16 @@ class CustomSubscribeHomePlan extends StatelessWidget {
                         borderRadius: BorderRadius.circular(22),
                         color: AppColors.secondaryColorOneColor,
                       ),
-                      child: Text(
-                        'اول عائد: 1 ديسمبر 2025',
-                        style: TextStyles.font11Medium(
-                          context,
-                        ).copyWith(color: Colors.white),
+                      child: Icon(
+                        Icons.visibility_rounded,
+                        color: Colors.white,
                       ),
                     ),
                   ],
                 ),
 
                 SizedBox(height: 15),
-                Text(
-                  'إجمالى الاستثمار',
-                  style: TextStyles.font14Medium(
-                    context,
-                  ).copyWith(color: Colors.white),
-                ),
+               
                 Text(
                   '40,000 ج.م',
                   style: TextStyles.font20Bold(
@@ -76,50 +69,7 @@ class CustomSubscribeHomePlan extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          Row(
-            children: [
-              Spacer(),
-              ColumnOfOrderDetails(title: 'الاسهم', subTitle: '1'),
-              Spacer(),
-              SizedBox(height: 25, child: VerticalDivider(width: 1)),
-              Spacer(),
-              ColumnOfOrderDetails(title: 'عائد شهرى', subTitle: '200 ج.م'),
-              Spacer(),
-              SizedBox(height: 25, child: VerticalDivider(width: 1)),
-              Spacer(),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  backgroundColor: AppColors.primaryColorOneColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                onPressed: () {
-                  g.Get.to(
-                    () => const WalletView(),
-                    transition: g.Transition.fade,
-                    duration: const Duration(milliseconds: 400),
-                  );
-                },
-                child: Row(
-                  children: [
-                    Icon(IconlyLight.arrow_down, color: Colors.white),
-                    Text(
-                      'سحب',
-                      style: TextStyles.font14Medium(
-                        context,
-                      ).copyWith(color: Colors.white),
-                    ),
-                  ],
-                ),
-              ),
-              Spacer(),
-            ],
-          ),
+          // HomeActionsRow(),
           SizedBox(height: 15),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
@@ -133,7 +83,7 @@ class CustomSubscribeHomePlan extends StatelessWidget {
               color: Color(0xffE6F1F9),
             ),
             child: Text(
-              'دخل شهرى ثابت لمدة 10 سنين استثمار ذكى وامن',
+              'إستبدل الخردة وابدا رحلتك فى تحويش واستثمار الاموال',
               style: TextStyles.font14Medium(context),
               textAlign: TextAlign.center,
             ),

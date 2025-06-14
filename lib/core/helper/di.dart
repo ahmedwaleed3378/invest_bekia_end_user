@@ -9,4 +9,5 @@ Future<void> setupGetIt() async {
   // CacheHelper.to.init();
   Dio dio = await DioFactory.getDio();
   getIt.registerLazySingleton<Dio>(() => dio);
+  
 }

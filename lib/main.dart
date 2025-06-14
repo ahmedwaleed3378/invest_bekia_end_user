@@ -12,12 +12,15 @@ import 'package:invest_bekia/core/helper/di.dart';
 import 'package:invest_bekia/core/helper/transition.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/featuers/auth/cubit/login_cubit.dart';
+import 'package:invest_bekia/featuers/auth/cubit/register_cubit.dart';
 import 'package:invest_bekia/featuers/auth/login_services/login_service.dart';
+import 'package:invest_bekia/featuers/auth/login_services/register_service.dart';
 import 'package:invest_bekia/featuers/splash/presentation/views/splash_view.dart';
 import 'package:invest_bekia/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // Initialize the cache helper
   await CacheHelper.to.init();
 
   await setupGetIt();
@@ -40,6 +43,7 @@ class InvestBekiaApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => LoginCubit(LoginService())),
+        BlocProvider(create: (context) => RegisterCubit(RegisterService())),
         // BlocProvider(
         //   create: (context) => SubjectBloc(),
         // ),

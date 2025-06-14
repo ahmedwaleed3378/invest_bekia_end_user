@@ -28,12 +28,17 @@ class CacheHelper {
       _prefs.setString("lang", languageCode);
 
   Future<void> saveToken(String token) => _prefs.setString("token", token);
+  Future<void> saveUserName(String userName) => _prefs.setString("user_name", userName);
+  Future<void> savePhone(String phone) => _prefs.setString("phone", phone);
+  Future<void> saveImage(String image) => _prefs.setString("image", image);
   Future<void> saveUserId(int userId) => _prefs.setInt("user_id", userId);
+  Future<void> saveSelledAmount(int userId) => _prefs.setInt("selled_amount", userId);
+  Future<void> saveWalletBalance(int userId) => _prefs.setInt("walletBalance", userId);
+  Future<void> saveReservedCash(int userId) => _prefs.setInt("reserved_cash", userId);
 
   Future<void> saveFcmToken(String fcmToken) =>
       _prefs.setString("fcmToken", fcmToken);
 
-  Future<void> savePhone(String phone) => _prefs.setString("phone", phone);
 
   Future<void> saveIsFirstTime(bool isFirstTime) =>
       _prefs.setBool("isFirstTime", isFirstTime);
@@ -49,10 +54,15 @@ class CacheHelper {
   String? get token => _prefs.getString("token");
 
   int? get userID => _prefs.getInt("user_id");
+  int? get walletBalance => _prefs.getInt("walletBalance");
+  int? get reservedCach => _prefs.getInt("reserved_cash");
+  int? get selledAmount => _prefs.getInt("selled_amount");
 
   bool get isLoggedIn => token != null && token!.isNotEmpty;
 
   String? get phone => _prefs.getString("phone");
+  String? get userName => _prefs.getString("user_name");
+  String? get image => _prefs.getString("image");
 
   String? get fcmToken => _prefs.getString("fcmToken");
 

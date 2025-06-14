@@ -37,7 +37,7 @@ class CustomGoalContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'هدفك دلوقتي',
+                    'الوقت المتبقي حتى التقييم القادم',
                     style: TextStyles.font18SemiBold(context),
                   ),
                   Text(
