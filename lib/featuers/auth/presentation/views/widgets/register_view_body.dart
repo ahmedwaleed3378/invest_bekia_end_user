@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart' as g;
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
 import 'package:invest_bekia/core/widgets/buttoms/custom_big_elevated_btm_with_title.dart';
 import 'package:invest_bekia/core/widgets/fields/custom_form_text_field.dart';
 import 'package:invest_bekia/featuers/auth/cubit/register_cubit.dart';
+import 'package:invest_bekia/featuers/auth/presentation/views/login_view.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_auth_row_with_title.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/widgets/custom_privacy_and_polices_check.dart';
 import 'package:invest_bekia/featuers/auth/presentation/views/listeners/register_bloc_listener.dart';
@@ -147,13 +149,11 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                   const Spacer(),
                   CustomAuthButtomRowWithTitle(
                     onPress: () {
-                      if (_formKey.currentState!.validate()) {
-                        context.read<RegisterCubit>().register({
-                          "FullName": _fullNameController.text,
-                          "Phone": _phoneController.text,
-                          "Password": _passwordController.text,
-                        });
-                      }
+                      g.Get.off(
+                        () => const LoginView(),
+                        transition: g.Transition.fade,
+                        duration: const Duration(milliseconds: 800),
+                      );
                     },
                     mainTitle: 'عندك حساب؟',
                     btmTtile: 'سجّل دخول!',

@@ -3,13 +3,14 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:invest_bekia/core/helper/cached_helper.dart';
 import 'package:invest_bekia/core/helper/di.dart';
+import 'package:invest_bekia/core/helper/dio_error_handler.dart';
 import 'package:invest_bekia/core/helper/dio_helper.dart';
 
 import '../models/login_model.dart';
 
 class LoginService {
   Future<LoginResponse> login(Map<String, dynamic> data) async {
-    // try {
+    try {
     final response = await getIt<Dio>().post("$baseUrl/auth/login", data: data);
 
     final LoginResponse loginModel = LoginResponse.fromJson(response.data);
@@ -30,10 +31,10 @@ class LoginService {
     log('cached userId: ${loginModel.data!.userId}');
     log('cached walletBalance: ${loginModel.data!.walletBalance}');
     return loginModel;
-    // } on DioException catch (e) {
-    //   throw handleDioError(e.response);
-    // } catch (e) {
-    //   throw e.toString();
-    // }
+    } on DioException catch (e) {
+      throw handleDioError(e.response);
+    } catch (e) {
+      throw e.toString();
+    }
   }
 }

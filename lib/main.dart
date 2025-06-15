@@ -20,8 +20,10 @@ import 'package:invest_bekia/generated/l10n.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Initialize the cache helper
+
+  // Initialize CacheHelper first
   await CacheHelper.to.init();
+
 
   await setupGetIt();
 
@@ -31,8 +33,6 @@ void main() async {
   ]);
   Bloc.observer = MyBlocObserver();
   runApp(const InvestBekiaApp());
-
-  await CacheHelper().init();
 }
 
 class InvestBekiaApp extends StatelessWidget {

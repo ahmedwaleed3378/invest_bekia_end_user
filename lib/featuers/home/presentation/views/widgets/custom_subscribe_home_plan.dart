@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart' as g;
-import 'package:iconly/iconly.dart';
 import 'package:invest_bekia/core/utils/app_colors.dart';
 import 'package:invest_bekia/core/utils/app_images.dart';
 import 'package:invest_bekia/core/utils/app_styles.dart';
-import 'package:invest_bekia/featuers/orders/presentation/views/widgets/column_of_order_details.dart';
-import 'package:invest_bekia/featuers/settings/wallet/presentation/views/wallet_view.dart';
 
 class CustomSubscribeHomePlan extends StatelessWidget {
   const CustomSubscribeHomePlan({super.key});

@@ -20,7 +20,7 @@ class CustomSliverAppBarForHome extends StatefulWidget {
 class _CustomSliverAppBarForHomeState extends State<CustomSliverAppBarForHome> {
   List<MainAppBarItemModel> mainAppBarItemModels = [
     MainAppBarItemModel(
-      title: '${CacheHelper.to.reservedCach} ج.م',
+      title: '${CacheHelper.to.reservedCash} ج.م',
       subTitle: 'فلوسك',
       image: Assets.imagesYourMoney,
       bgColor: Color(0xffE9F7F1),

@@ -15,38 +15,38 @@ String handleDioError(Response? response) {
 
 class RequestErrorResponse {
   String? message;
-  // List<FieldError>? errors;
+  List<FieldError>? errors;
 
   RequestErrorResponse({this.message, 
-  // this.errors,
+  this.errors,
   });
 
   RequestErrorResponse.fromJson(Map<String, dynamic> json) {
     message = json['message'];
-    // if (json['errors'] != null) {
-    //   errors = [];
-    //   json['errors'].forEach((key, value) {
-    //     errors!.add(FieldError(field: key, messages: List<String>.from(value)));
-    //   });
-    // }
+    if (json['errors'] != null) {
+      errors = [];
+      json['errors'].forEach((key, value) {
+        errors!.add(FieldError(field: key, messages: List<String>.from(value)));
+      });
+    }
   }
 }
 
-// class FieldError {
-//   String? field;
-//   List<String>? messages;
+class FieldError {
+  String? field;
+  List<String>? messages;
 
-//   FieldError({this.field, this.messages});
+  FieldError({this.field, this.messages});
 
-//   FieldError.fromJson(Map<String, dynamic> json) {
-//     field = json['field'];
-//     messages = List<String>.from(json['messages']);
-//   }
+  FieldError.fromJson(Map<String, dynamic> json) {
+    field = json['field'];
+    messages = List<String>.from(json['messages']);
+  }
 
-//   Map<String, dynamic> toJson() {
-//     final Map<String, dynamic> data = <String, dynamic>{};
-//     data['field'] = field;
-//     data['messages'] = messages;
-//     return data;
-//   }
-// }
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['field'] = field;
+    data['messages'] = messages;
+    return data;
+  }
+}

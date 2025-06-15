@@ -17,13 +17,13 @@ class LoginCubit extends Cubit<LoginState> {
     //   emit(LoginFailure("no_internet".tr()));
     //   return;
     // }
-    // try {
+    try {
       final LoginResponse loginModel =
           await loginService.login(data);
       emit(LoginSuccess(loginModel));
-    // } catch (e) {
-    //   emit(LoginFailure(e.toString()));
-    // }
+    } catch (e) {
+      emit(LoginFailure(e.toString()));
+    }
   }
 }
 
